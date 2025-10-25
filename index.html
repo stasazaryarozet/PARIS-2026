@@ -321,6 +321,30 @@
         inclusionsGrid.appendChild(incEl);
       });
 
+      // Form texts from CONTENT.form
+      if (CONTENT.form) {
+        const F = CONTENT.form;
+        const nameLabel = document.querySelector('label[for="name"]');
+        const contactLabel = document.querySelector('label[for="contact"]');
+        const contactInput = document.getElementById('contact');
+        const contactHint = document.getElementById('contact-hint');
+        const consentLabel = document.querySelector('.form-consent label');
+        const submitBtn = document.querySelector('.form-submit .btn-primary');
+        const modalTitle = document.querySelector('#thankYouModal .modal-title');
+        const modalText = document.querySelector('#thankYouModal .modal-text');
+        const modalClose = document.querySelector('#thankYouModal .modal-close');
+
+        if (nameLabel && F.name_label) nameLabel.textContent = F.name_label;
+        if (contactLabel && F.contact_label) contactLabel.textContent = F.contact_label;
+        if (contactInput && F.contact_placeholder) contactInput.placeholder = F.contact_placeholder;
+        if (contactHint && F.contact_hint) contactHint.textContent = F.contact_hint;
+        if (consentLabel && F.consent_label) consentLabel.innerHTML = F.consent_label;
+        if (submitBtn && F.submit_button) submitBtn.textContent = F.submit_button;
+        if (modalTitle && F.modal_title) modalTitle.textContent = F.modal_title;
+        if (modalText && F.modal_text) modalText.innerHTML = F.modal_text;
+        if (modalClose && F.modal_close) modalClose.textContent = F.modal_close;
+      }
+
       // Add event listeners for day accordions
       document.querySelectorAll('.day-header').forEach(header => {
         header.addEventListener('click', () => toggleDay(header));
