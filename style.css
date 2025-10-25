@@ -254,6 +254,11 @@ section {
   opacity: 0.95;
   font-family: var(--font-body);
   font-weight: 500;
+  /* Центровка блока и текста */
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* Emphasis styling */
