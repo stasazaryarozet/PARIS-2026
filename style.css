@@ -1,5 +1,5 @@
 /* === FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Forum&display=swap');
 
 /* === VERSION BADGE === */
 .version-badge {
@@ -27,6 +27,7 @@
   
   --font-display: 'Cormorant Garamond', 'Crimson Text', 'Baskerville', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-deco: 'Forum', 'Cormorant Garamond', Georgia, serif;
   --rhythm: 8px;          /* baseline grid step */
   --caps-tracking: 0.05em; /* единая разрядка для UPPERCASE */
 }
@@ -629,10 +630,12 @@ section {
 }
 
 .day-title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 0.25rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-deco);
 }
 
 @media (min-width: 768px) {
