@@ -79,10 +79,12 @@ Rue de Seine. Квартал антикваров с 1970-х. Лак. Хром. 
 ## ДЕНЬ III • 17 января
 ### Maison & Objet
 
+<h2 class="material-title"><strong>ТАКТИЛЬНОСТЬ</strong></h2>
+
 **Новое в Декоре**  
 <span class="pavilion-number">Elizabeth Leriche</span>
 
-Глянцевый лак. Матовая керамика. Архивные паттерны. Тактильность
+Глянцевый лак. Матовая керамика. Архивные паттерны
 
 **Ремесло**  
 <span class="pavilion-number">Павильон 5А</span>

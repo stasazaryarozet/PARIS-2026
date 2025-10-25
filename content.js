@@ -83,7 +83,7 @@ const CONTENT = {
       locations: [
         {
           name: "Новое в&nbsp;Декоре",
-          description: "<span class=\"pavilion-number\">Elizabeth Leriche</span>\nГлянцевый лак. Матовая керамика. Архивные паттерны. Тактильность"
+          description: "<span class=\"pavilion-number\">Elizabeth Leriche</span>\nГлянцевый лак. Матовая керамика. Архивные паттерны"
         },
         {
           name: "Ремесло",
