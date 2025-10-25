@@ -756,18 +756,12 @@ section {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: grid;
   grid-template-rows: auto auto 1fr auto; /* name, role, bio (fills), in-program */
   min-height: 360px;
   height: 100%;
 }
 
-.curator-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-}
 
 .curator-name {
   font-size: 1.75rem;
