@@ -39,6 +39,24 @@ WEBSITE_CONTENT.md  ← единственный источник правды (
 
 Автоматический деплой через GitHub Actions при пуше в `main`.
 
+### Протокол деплоя для агентов (GPT-5/Claude)
+
+1. Внести изменения в `WEBSITE_CONTENT.md`/`style.css`/`index.html` (при любом изменении — bump версии).
+2. Обновить `version` в frontmatter `WEBSITE_CONTENT.md` (число).
+3. Регенерировать `content.js`:
+   ```bash
+   python3 build.py
+   ```
+4. Commit + push (GitHub Actions задеплоит):
+   ```bash
+   git add -A && git commit -m "v<NN>: <описание>" && git push
+   ```
+
+Альтернатива (единая команда):
+```bash
+tools/release.sh v<NN> "Описание"
+```
+
 ## Инструменты
 
 - **Хостинг**: GitHub Pages (кастомный домен + HTTPS)
