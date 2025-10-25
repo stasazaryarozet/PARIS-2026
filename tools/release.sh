@@ -25,9 +25,9 @@ if ! grep -q '^version: "' WEBSITE_CONTENT.md; then
   echo "Не найден frontmatter 'version' в WEBSITE_CONTENT.md" >&2; exit 1
 fi
 
-# Извлекаем числовую часть для frontmatter и полную — для коммита
-NUM_ONLY=$(echo "$VERSION" | sed -E 's/^v([0-9]+).*/\1/')
-sed -E -i '' "s/^version: \"[0-9]+\"/version: \"${NUM_ONLY}\"/" WEBSITE_CONTENT.md
+# Извлекаем кодовое имя для frontmatter (после дефиса) и полную версию — для коммита
+CODENAME=$(echo "$VERSION" | sed -E 's/^v[0-9]+-//')
+sed -E -i '' "s/^version: \"[^\"]+\"/version: \"${CODENAME}\"/" WEBSITE_CONTENT.md
 
 # 2) Регенерация content.js
 python3 build.py
