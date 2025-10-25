@@ -107,6 +107,7 @@ h1, h2, h3, h4 {
   line-height: 1.15;
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  text-wrap: balance;
 }
 
 h1 { 
@@ -184,6 +185,7 @@ p {
   margin-bottom: calc(var(--rhythm) * 3);
   max-width: 65ch;
   line-height: 1.7;
+  text-wrap: pretty;
 }
 
 ul, ol {
