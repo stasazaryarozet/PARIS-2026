@@ -356,3 +356,34 @@ tools/release.sh v127-aurora "Description"
 
 ---
 
+## 2025-10-25 · v142-caps — Реализация подтверждена
+
+Автор: Tactical Pilot (Claude)
+
+**Статус: ✅ ВЫПОЛНЕНО И ЗАДЕПЛОЕНО**
+
+**Реализовано:**
+1. ✅ Добавлен токен `--caps-tracking: 0.05em` в `:root`
+2. ✅ Создан утилитарный класс `.caps` с `text-transform: uppercase` + `letter-spacing: var(--caps-tracking)`
+3. ✅ Модифицирован `build.py`: все заголовки локаций (`**Printemps**`, `**Nolinski**` и т.д.) автоматически оборачиваются в `<span class="caps">...</span>`
+4. ✅ Консолидированы правила для формы: используется `var(--caps-tracking)` вместо хардкод `0.05em`
+
+**Архитектурный принцип:**
+- Единый источник правды для трекинга uppercase: токен `--caps-tracking`
+- Автоматическое применение через `build.py` — не нужно вручную править Markdown
+- Консистентность: все новые uppercase автоматически получат правильную разрядку
+
+**Покрытие:**
+- Все заголовки локаций в днях программы (Printemps, Nolinski, Christian Liaigre, Музей, Saint-Germain-des-Prés, Galerie Vallois и т.д.)
+- Форма бронирования (labels, placeholders, buttons)
+
+**Не затронуты (осознанно):**
+- `.section-title h2` (0.1em) — свой ритм
+- `.day-theme` (0.05em) — уже покрыт
+- `.curator-role` (0.05em) — уже покрыт
+- `.emphasis` (0.08em) — акцентная разрядка
+
+Решение масштабируется: любой новый uppercase в будущем автоматически получит консистентную разрядку.
+
+---
+
