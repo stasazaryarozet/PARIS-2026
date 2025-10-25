@@ -1,7 +1,7 @@
 const CONTENT = {
   hero: {
     title: "Индивидуальный почерк ар-деко<br><span class=\"hero-accent\">100&nbsp;лет</span><br><span class=\"hero-bullet\">•</span>",
-    subtitle: "Фактуры, материалы, атмосфера. <br><span class=\"emphasis\">Можно ли&nbsp;ощутить словами?</span> <br>4 ДНЯ<br>с Ольгой Розет и&nbsp;Натальей Логиновой",
+    subtitle: "Фактуры, материалы, атмосфера. <br><span class=\"emphasis\">Можно ли&nbsp;ощутить словами?</span><br> <br>4 ДНЯ<br>с Ольгой Розет и&nbsp;Натальей Логиновой",
     dates: "15–18+ января 2026",
     group: "до&nbsp;12 человек",
     price: "1 550&nbsp;€"
@@ -34,7 +34,7 @@ const CONTENT = {
     {
       number: "ДЕНЬ I",
       date: "15 января",
-      title: "Правый берег",
+      title: "ПРАВЫЙ БЕРЕГ",
       theme: "",
       locations: [
         {
@@ -58,7 +58,7 @@ const CONTENT = {
     {
       number: "ДЕНЬ II",
       date: "16 января",
-      title: "Левый берег",
+      title: "ЛЕВЫЙ БЕРЕГ",
       theme: "",
       locations: [
         {
@@ -78,7 +78,7 @@ const CONTENT = {
     {
       number: "ДЕНЬ III",
       date: "17 января",
-      title: "Maison & Objet",
+      title: "MAISON & OBJET",
       theme: "",
       locations: [
         {

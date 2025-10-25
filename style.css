@@ -901,6 +901,7 @@ section {
 .booking-form small,
 .booking-form input::placeholder {
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .form-group {

@@ -12,7 +12,7 @@ version: "consent"
 # Индивидуальный почерк ар-деко<br><span class="hero-accent">100 лет</span><br><span class="hero-bullet">•</span>
 
 Фактуры, материалы, атмосфера.  
-<span class="emphasis">Можно ли ощутить словами?</span>  
+<span class="emphasis">Можно ли ощутить словами?</span><br>  
 4 ДНЯ<br>с Ольгой Розет и Натальей Логиновой
 
 15–18+ января 2026 | до 12 человек | 1 550 €
@@ -38,7 +38,7 @@ Deniot, Liaigre, <span class="emphasis">Eileen Gray</span>, Aalto. У каждо
 Парижские дизайнеры смешивают новое со старым.<br>Интерьер без предметов с историей выглядит неживо.
 
 ## ДЕНЬ I • 15 января
-### Правый берег
+### ПРАВЫЙ БЕРЕГ
 
 **Printemps**
 
@@ -59,7 +59,7 @@ Deniot, Liaigre, <span class="emphasis">Eileen Gray</span>, Aalto. У каждо
 ---
 
 ## ДЕНЬ II • 16 января
-### Левый берег
+### ЛЕВЫЙ БЕРЕГ
 
 **Saint-Germain-des-Prés**
 
@@ -77,7 +77,7 @@ Rue de Seine. Квартал антикваров с 1970-х. Лак. Хром. 
 ---
 
 ## ДЕНЬ III • 17 января
-### Maison & Objet
+### MAISON & OBJET
 
 <h2 class="material-title"><strong>ТАКТИЛЬНОСТЬ</strong></h2>
 
