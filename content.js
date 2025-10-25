@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "days-accent"
+    version: "no-highlight"
   },
   program: {
     intro: [
@@ -67,7 +67,7 @@ const CONTENT = {
         },
         {
           name: "<span class=\"caps\">Galerie Vallois</span>",
-          description: "(41 rue de Seine)\nКонтакт с&nbsp;оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027&nbsp;— <span class=\"name-highlight\">Eileen Gray</span>"
+          description: "(41 rue de Seine)\nКонтакт с&nbsp;оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027&nbsp;— Eileen Gray"
         },
         {
           name: "<span class=\"caps\">Palais de Tokyo\n+\nTrocadéro</span>",
