@@ -717,6 +717,10 @@ section {
   color: var(--midnight-blue);
 }
 
+.location-name .caps {
+  letter-spacing: 0.03em;
+}
+
 .location-description {
   color: var(--text-muted);
   line-height: 1.7;
