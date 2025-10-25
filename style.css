@@ -940,17 +940,23 @@ section {
   color: var(--text-muted);
   margin: 1.5rem 0;
   display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+  align-items: flex-start; /* выравниваем по верхней линии первой строки */
+  gap: 0.75rem;
 }
 
 .form-consent input[type="checkbox"] {
-  margin-top: 0.25rem;
+  margin-top: 0.35em; /* оптическое выравнивание чекбокса с первой строкой */
+  flex: 0 0 auto;
 }
 
 .form-consent input[type="checkbox"]:focus-visible {
   outline: 2px solid var(--chrome);
   outline-offset: 2px;
+}
+
+.form-consent label {
+  line-height: 1.6; /* устойчивое межстрочное для многострочного текста */
+  flex: 1 1 auto;
 }
 
 .form-submit {
