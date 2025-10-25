@@ -70,7 +70,9 @@ Rue de Seine. Квартал антикваров с 1970-х. Лак. Хром. 
 
 Контакт с оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027 — <span class="emphasis">Eileen Gray</span>
 
-**Palais de Tokyo + Trocadéro**
+**Palais de Tokyo
++
+Trocadéro**
 
 Маршрут 1925–37. «Фея Электричества» Raoul Dufy — 250 панелей — крупнейшая картина эпохи. «Лебединая песня» стиля
 

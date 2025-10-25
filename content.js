@@ -70,7 +70,7 @@ const CONTENT = {
           description: "(41 rue de Seine)\nКонтакт с&nbsp;оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027&nbsp;— <span class=\"emphasis\">Eileen Gray</span>"
         },
         {
-          name: "<span class=\"caps\">Palais de Tokyo + Trocadéro</span>",
+          name: "<span class=\"caps\">Palais de Tokyo\n+\nTrocadéro</span>",
           description: "Маршрут 1925–37. «Фея Электричества» Raoul Dufy&nbsp;— 250 панелей&nbsp;— крупнейшая картина эпохи. «Лебединая песня» стиля"
         }
       ]
