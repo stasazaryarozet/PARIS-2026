@@ -25,7 +25,7 @@ version: "caps-all"
 
 ## Программа
 
-Deniot, Liaigre, <span class="name-emphasis">Eileen Gray</span>, Aalto. У каждого свой <span class="emphasis">почерк</span>.
+Deniot, Liaigre, Eileen Gray, Aalto. У каждого свой <span class="emphasis">почерк</span>.
 
 В интерьерах видны соотношения фактур, тонкости цвета, работа с материалами.
 
