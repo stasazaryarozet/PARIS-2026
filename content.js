@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "plus"
+    version: "caps"
   },
   program: {
     intro: [
@@ -38,19 +38,19 @@ const CONTENT = {
       theme: "",
       locations: [
         {
-          name: "Printemps",
+          name: "<span class=\"caps\">Printemps</span>",
           description: "Купол 1923&nbsp;— 20&nbsp;метров. Свет сквозь 3 185 панелей. Кованое железо Брандта. Primavera. Expo 1925"
         },
         {
-          name: "Nolinski",
+          name: "<span class=\"caps\">Nolinski</span>",
           description: "Латунь. Мрамор: Каррара, Неро Маркина. Контраст фактур. Нео-деко"
         },
         {
-          name: "Christian Liaigre",
+          name: "<span class=\"caps\">Christian Liaigre</span>",
           description: "Шлифовка дерева до&nbsp;шелковистости. Глухой блеск и&nbsp;отточенные кромки камня. Чистота, точность&nbsp;— тишина формы"
         },
         {
-          name: "Музей",
+          name: "<span class=\"caps\">Музей</span>",
           description: "Выставка к&nbsp;100-летию стиля"
         }
       ]
@@ -62,15 +62,15 @@ const CONTENT = {
       theme: "",
       locations: [
         {
-          name: "Saint-Germain-des-Prés",
+          name: "<span class=\"caps\">Saint-Germain-des-Prés</span>",
           description: "Rue de Seine. Квартал антикваров с&nbsp;1970-х. Лак. Хром. Фанеровка. Руки мастеров. «Воскрешение» ар-деко"
         },
         {
-          name: "Galerie Vallois",
+          name: "<span class=\"caps\">Galerie Vallois</span>",
           description: "(41 rue de Seine)\nКонтакт с&nbsp;оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027&nbsp;— <span class=\"emphasis\">Eileen Gray</span>"
         },
         {
-          name: "Palais de Tokyo + Trocadéro",
+          name: "<span class=\"caps\">Palais de Tokyo + Trocadéro</span>",
           description: "Маршрут 1925–37. «Фея Электричества» Raoul Dufy&nbsp;— 250 панелей&nbsp;— крупнейшая картина эпохи. «Лебединая песня» стиля"
         }
       ]
@@ -82,19 +82,19 @@ const CONTENT = {
       theme: "",
       locations: [
         {
-          name: "Новое в&nbsp;Декоре",
+          name: "<span class=\"caps\">Новое в&nbsp;Декоре</span>",
           description: "<span class=\"pavilion-number\">Elizabeth Leriche</span>\nГлянцевый лак. Матовая керамика. Архивные паттерны"
         },
         {
-          name: "Ремесло",
+          name: "<span class=\"caps\">Ремесло</span>",
           description: "<span class=\"pavilion-number\">Павильон 5А</span>\nМаркетри. Эмаль. Стекло. След резца"
         },
         {
-          name: "Сигнатура",
+          name: "<span class=\"caps\">Сигнатура</span>",
           description: "<span class=\"pavilion-number\">Павильон 7</span>\nВысокое ремесло, галерейная подача. Латунь: полированная; патинированная; сатинированная. Бронза, камень, лак, бархат. Индивидуальный почерк и&nbsp;тактильность."
         },
         {
-          name: "«Трансформизм»",
+          name: "<span class=\"caps\">«Трансформизм»</span>",
           description: "<span class=\"pavilion-number\">Harry Nuriev</span>\nЦвет как&nbsp;высказывание. Традиция вещи."
         }
       ]
@@ -110,11 +110,11 @@ const CONTENT = {
           description: "Волна потолка: свет и&nbsp;геометрия. Гнутые под&nbsp;человека формы. Теплая ручка двери.&nbsp;— <span class=\"emphasis\">Человечность модернизма</span>."
         },
         {
-          name: "Парк",
+          name: "<span class=\"caps\">Парк</span>",
           description: "Ландшафт и&nbsp;Архитектура в&nbsp;ансамбле"
         },
         {
-          name: "Вечер",
+          name: "<span class=\"caps\">Вечер</span>",
           description: "Разговор"
         }
       ]
