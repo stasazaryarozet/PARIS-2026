@@ -295,9 +295,9 @@ section {
 
 /* Days accent - larger and decorative */
 .days-accent {
-  font-size: 1.35rem;
+  font-size: 1.6rem;
   font-family: var(--font-deco);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.12em;
 }
 
@@ -1287,7 +1287,7 @@ section {
 
   /* Make section headers on mobile not larger than day titles */
   .section-title h2 {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     letter-spacing: 0.08em;
   }
 
