@@ -6,7 +6,7 @@ og_title: "Индивидуальный почерк ар-деко. 100 лет"
 og_description: "4 дня. Фактуры, материалы, атмосфера. Можно ли ощутить словами?"
 og_image: "https://parisinjanuary.ru/og-image.jpg"
 og_url: "https://parisinjanuary.ru"
-version: "form-bind"
+version: "caps-locations"
 ---
 
 # Индивидуальный почерк ар-деко<br><span class="hero-accent">100 лет</span><br><span class="hero-bullet">•</span>
@@ -166,7 +166,7 @@ name_label: Имя
 contact_label: Эл. почта или телефон
 contact_placeholder: your@email.com или +7...
 contact_hint: Укажите email или телефон для связи
-consent_label: !<br> с обработкой персональных данных и получением информации от кураторов
+consent_label: Согласиться<br> с обработкой персональных данных и получением информации от кураторов
 submit_button: Забронировать место
 modal_title: Спасибо!
 modal_text: Заявка принята. С Вами свяжутся.
