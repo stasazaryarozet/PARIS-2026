@@ -454,7 +454,7 @@ section {
 }
 
 .material-title strong {
-  color: var(--chrome);
+  color: var(--copper);
   font-weight: 600;
   letter-spacing: 0.05em;
 }
@@ -1300,7 +1300,7 @@ section {
 
   /* Mobile: "По дням" должно быть заметно крупнее, чем заголовки дней */
   .program .section-title h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-family: var(--font-deco);
