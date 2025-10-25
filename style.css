@@ -957,7 +957,7 @@ section {
 .form-consent input[type="checkbox"] {
   margin-top: 0;                     /* в колонке отступ не нужен */
   flex: 0 0 auto;
-  transform: scale(1.6);             /* крупнее стандартного */
+  transform: scale(2.4);             /* значительно крупнее */
   transform-origin: center;
   accent-color: var(--accent-red);
 }
