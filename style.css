@@ -982,11 +982,11 @@ section {
   flex-direction: column;            /* текст сверху, чекбокс снизу */
   align-items: center;               /* центр по горизонтали */
   text-align: center;                /* центрируем многострочный текст */
-  gap: 0.75rem;
+  gap: 1rem;                        /* чуть больше расстояние до галки */
 }
 
 .form-consent input[type="checkbox"] {
-  margin-top: 0;                     /* в колонке отступ не нужен */
+  margin-top: 0.25rem;              /* визуально опускаем галку чуть ниже */
   flex: 0 0 auto;
   transform: scale(2.4);             /* значительно крупнее */
   transform-origin: center;

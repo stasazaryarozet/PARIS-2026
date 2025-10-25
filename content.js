@@ -106,7 +106,7 @@ const CONTENT = {
       theme: "",
       locations: [
         {
-          name: "Поездка<br>в Maison Louis Carré",
+          name: "<span class=\"caps\">Поездка<br>в Maison Louis Carré</span>",
           description: "Волна потолка: свет и&nbsp;геометрия. Гнутые под&nbsp;человека формы. Теплая ручка двери.&nbsp;— <span class=\"emphasis\">Человечность модернизма</span>."
         },
         {
@@ -160,7 +160,7 @@ const CONTENT = {
     {
       icon: "€",
       title: "Стоимость",
-      description: "---",
+      description: "## Форма",
       price: "1 550&nbsp;€"
     }
   ],

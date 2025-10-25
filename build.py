@@ -267,10 +267,9 @@ def parse_content(md_path):
         for loc_match in re.finditer(location_pattern, locations_text, re.DOTALL):
             name, desc = loc_match.groups()
             desc_clean = desc.strip().replace('\n\n', '\n')
-            # Удаляем ** из name и оборачиваем в <span class="caps"> для uppercase
+            # Удаляем ** из name и оборачиваем в <span class="caps"> для uppercase + tracking
             name_clean = name.strip().replace('**', '')
-            # Оборачиваем только если не содержит HTML-теги (например, <br>)
-            if '<' not in name_clean:
+            if 'class="caps"' not in name_clean:
                 name_clean = f'<span class="caps">{name_clean}</span>'
             locations.append({
                 'name': name_clean,
