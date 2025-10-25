@@ -649,10 +649,10 @@ section {
 .day-title {
   font-size: 1.6rem;
   margin-bottom: 0.25rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-family: var(--font-deco);
+  font-family: var(--font-body);
 }
 
 @media (min-width: 768px) {

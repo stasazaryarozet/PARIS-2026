@@ -330,6 +330,12 @@
       // Form texts from CONTENT.form
       if (CONTENT.form) {
         const F = CONTENT.form;
+        // Helper: decode HTML entities for plain-text fields (e.g., placeholders)
+        const decodeHtml = (str) => {
+          const t = document.createElement('textarea');
+          t.innerHTML = str;
+          return t.value;
+        };
         const nameLabel = document.querySelector('label[for="name"]');
         const contactLabel = document.querySelector('label[for="contact"]');
         const contactInput = document.getElementById('contact');
@@ -342,7 +348,7 @@
 
         if (nameLabel && F.name_label) nameLabel.innerHTML = F.name_label;
         if (contactLabel && F.contact_label) contactLabel.innerHTML = F.contact_label;
-        if (contactInput && F.contact_placeholder) contactInput.placeholder = F.contact_placeholder;
+        if (contactInput && F.contact_placeholder) contactInput.placeholder = decodeHtml(F.contact_placeholder);
         if (contactHint && F.contact_hint) contactHint.textContent = F.contact_hint;
         if (consentLabel && F.consent_label) consentLabel.innerHTML = F.consent_label;
         if (submitBtn && F.submit_button) submitBtn.textContent = F.submit_button;
