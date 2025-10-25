@@ -164,7 +164,7 @@ name_label: Имя
 contact_label: Эл. почта или телефон
 contact_placeholder: your@email.com или +7...
 contact_hint: Укажите email или телефон для связи
-consent_label: Согласиться<br> с обработкой персональных данных и получением информации от кураторов
+consent_label: !<br> с обработкой персональных данных и получением информации от кураторов
 submit_button: Забронировать место
 modal_title: Спасибо!
 modal_text: Заявка принята. С Вами свяжутся.

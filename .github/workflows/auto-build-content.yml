@@ -1,0 +1,39 @@
+name: Auto build content.js from WEBSITE_CONTENT.md
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'WEBSITE_CONTENT.md'
+  workflow_dispatch:
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate content.js
+        run: |
+          python3 build.py
+
+      - name: Commit updated content.js (if changed)
+        run: |
+          if git diff --quiet -- content.js; then
+            echo "No changes in content.js"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content.js
+            git commit -m "ci: regenerate content.js from WEBSITE_CONTENT.md [skip ci]"
+            git push
+          fi
+
