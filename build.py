@@ -344,6 +344,20 @@ def parse_content(md_path):
                 inc_data['title'] = 'Стоимость'
             
             data['inclusions'].append(inc_data)
+
+    # FORM (тексты формы из секции "Форма")
+    form_section = re.search(r'## Форма\n\n(.+?)(?=\n## |\Z)', body, re.DOTALL)
+    if form_section:
+        form_text = form_section.group(1).strip()
+        form: dict[str, str] = {}
+        for line in form_text.split('\n'):
+            if not line.strip():
+                continue
+            if ':' in line:
+                key, val = line.split(':', 1)
+                form[key.strip()] = val.strip()
+        if form:
+            data['form'] = form
     
     # Применяем типографику ко всем текстам рекурсивно
     return apply_typography_recursive(data)

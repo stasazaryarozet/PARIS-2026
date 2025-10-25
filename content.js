@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "flat"
+    version: "form-texts"
   },
   program: {
     intro: [
@@ -163,5 +163,16 @@ const CONTENT = {
       description: "---",
       price: "1 550&nbsp;€"
     }
-  ]
+  ],
+  form: {
+    name_label: "Имя",
+    contact_label: "Эл. почта или&nbsp;телефон",
+    contact_placeholder: "your@email.com или&nbsp;+7…",
+    contact_hint: "Укажите email или&nbsp;телефон для&nbsp;связи",
+    consent_label: "Согласиться<br> с&nbsp;обработкой персональных данных и&nbsp;получением информации от&nbsp;кураторов",
+    submit_button: "Забронировать место",
+    modal_title: "Спасибо!",
+    modal_text: "Заявка принята. С&nbsp;Вами свяжутся.",
+    modal_close: "Закрыть"
+  }
 };
