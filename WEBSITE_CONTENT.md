@@ -13,7 +13,7 @@ version: "css-bust"
 
 Фактуры, материалы, атмосфера.  
 <span class="emphasis">Можно ли ощутить словами?</span><br>  
-<span class="emphasis">4 ДНЯ</span><br>с Ольгой Розет и Натальей Логиновой
+<span class="emphasis days-accent">4 ДНЯ</span><br>с Ольгой Розет и Натальей Логиновой
 
 15–18+ января 2026 | до 12 человек | 1 550 €
 

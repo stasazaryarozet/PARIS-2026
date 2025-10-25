@@ -293,8 +293,8 @@ section {
   line-height: 1.8;
 }
 
-/* Hero subtitle emphasis - larger and decorative */
-.hero-subtitle .emphasis {
+/* Days accent - larger and decorative */
+.days-accent {
   font-size: 1.35rem;
   font-family: var(--font-deco);
   font-weight: 500;
