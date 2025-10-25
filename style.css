@@ -785,6 +785,10 @@ section {
   position: relative;
 }
 
+.curator-bio li:last-child {
+  margin-bottom: 0; /* убираем хвостовую неравномерность высоты */
+}
+
 .curator-bio li::before {
   content: '■';
   position: absolute;
@@ -808,6 +812,9 @@ section {
 .curator-in-program .emphasis {
   display: block;
   margin-bottom: 0.5rem;
+  white-space: nowrap;              /* не переносим ключевую строку */
+  line-height: 1.6;                 /* фиксируем высоту строки */
+  min-height: calc(1em * 1.6);      /* выравниваем высоту заголовка в обеих карточках */
 }
 
 /* min-height хак не нужен благодаря grid-раскладке */
@@ -886,6 +893,11 @@ section {
   padding: 3rem;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.booking-form label,
+.booking-form .btn-primary,
+.booking-form small {
   text-transform: uppercase;
 }
 
