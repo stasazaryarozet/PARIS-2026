@@ -293,6 +293,14 @@ section {
   line-height: 1.8;
 }
 
+/* Hero subtitle emphasis - larger and decorative */
+.hero-subtitle .emphasis {
+  font-size: 1.35rem;
+  font-family: var(--font-deco);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
+
 .hero-meta {
   display: flex;
   gap: 2rem;
