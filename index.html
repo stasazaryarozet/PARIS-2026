@@ -48,7 +48,13 @@
   
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   
-  <link rel="stylesheet" href="style.css" />
+  <link id="style-link" rel="stylesheet" href="style.css" />
+  <script>
+    (function(){
+      var l = document.getElementById('style-link');
+      if (l) l.href = 'style.css?v=' + Date.now();
+    })();
+  </script>
 </head>
 <body id="top">
   <!-- Version Badge -->
