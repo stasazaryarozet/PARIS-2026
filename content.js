@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "days-larger"
+    version: "inclusions-scope"
   },
   program: {
     intro: [
@@ -156,12 +156,6 @@ const CONTENT = {
       icon: "−",
       title: "Отдельно",
       description: "Перелет, проживание, питание"
-    },
-    {
-      icon: "€",
-      title: "Стоимость",
-      description: "## Форма",
-      price: "1 550&nbsp;€"
     }
   ],
   form: {

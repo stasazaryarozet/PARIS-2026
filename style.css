@@ -299,19 +299,6 @@ section {
   font-family: var(--font-deco);
   font-weight: 600;
   letter-spacing: 0.12em;
-  background: linear-gradient(135deg, 
-    #CD7F32 0%,
-    #E1A95F 25%,
-    #F4D03F 50%,
-    #E1A95F 75%,
-    #CD7F32 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: brightness(1.2);
-  display: inline-block;
-  animation: bronzeShine 3s ease-in-out infinite;
 }
 
 .hero-meta {
