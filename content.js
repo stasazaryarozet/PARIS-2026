@@ -18,7 +18,7 @@ const CONTENT = {
   },
   program: {
     intro: [
-      "Deniot, Liaigre, <span class=\"name-highlight\">Eileen Gray</span>, Aalto. У&nbsp;каждого свой <span class=\"emphasis\">почерк</span>.",
+      "Deniot, Liaigre, <span class=\"name-emphasis\">Eileen Gray</span>, Aalto. У&nbsp;каждого свой <span class=\"emphasis\">почерк</span>.",
       "В&nbsp;интерьерах видны соотношения фактур, тонкости цвета, работа с&nbsp;материалами.",
       "Не&#124;обход&#124;им ли<br><span class=\"emphasis\">контакт с&nbsp;Реальностью</span><br>?",
       "<div class=\"curator-separator\">•</div>",
