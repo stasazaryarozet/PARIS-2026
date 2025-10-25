@@ -736,6 +736,9 @@ section {
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
 }
 
 .curator-card:hover {
@@ -781,7 +784,7 @@ section {
 }
 
 .curator-in-program {
-  margin-top: 1.5rem;
+  margin-top: auto;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(205, 127, 50, 0.2);
   font-size: 1rem;
