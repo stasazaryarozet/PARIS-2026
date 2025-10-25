@@ -746,8 +746,8 @@ section {
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto; /* name, role, bio (fills), in-program */
   min-height: 360px;
   height: 100%;
 }
@@ -795,7 +795,7 @@ section {
 }
 
 .curator-in-program {
-  margin-top: auto;
+  margin-top: 0;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(205, 127, 50, 0.2);
   font-size: 1rem;
@@ -810,11 +810,7 @@ section {
   margin-bottom: 0.5rem;
 }
 
-@media (min-width: 1024px) {
-  .curator-in-program {
-    min-height: 120px; /* выравнивает верх заголовка в обеих карточках */
-  }
-}
+/* min-height хак не нужен благодаря grid-раскладке */
 
 /* === INCLUSIONS === */
 .inclusions {
