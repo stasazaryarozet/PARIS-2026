@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "natalia"
+    version: "punctuation"
   },
   program: {
     intro: [
@@ -135,7 +135,7 @@ const CONTENT = {
       name: "Наталья Логинова",
       role: "",
       bio: [
-        "Работала на&nbsp;телеканале «Культура»,<br>редактировала «Московское наследие»,<br>руководила Центром моды и дизайна Музея декоративного искусства",
+        "Работала на&nbsp;телеканале «Культура».<br>Редактировала «Московское наследие».<br>Руководила Центром моды и дизайна Музея декоративного искусства",
         "Иммигрировала в&nbsp;Париж по&nbsp;любви к&nbsp;городу"
       ],
       inProgram: "<span class=\"emphasis\">Открывает Париж</span>"
