@@ -6,7 +6,7 @@ og_title: "Индивидуальный почерк ар-деко. 100 лет"
 og_description: "4 дня. Фактуры, материалы, атмосфера. Можно ли ощутить словами?"
 og_image: "https://parisinjanuary.ru/og-image.jpg"
 og_url: "https://parisinjanuary.ru"
-version: "nowrap"
+version: "masters"
 ---
 
 # Индивидуальный почерк ар-деко<br><span class="hero-accent">100 лет</span><br><span class="hero-bullet">•</span>
@@ -131,7 +131,7 @@ Rue de Seine. Квартал антикваров с 1970-х. Лак. Хром. 
 • Ведёт авторские путешествия с 2008 года
 
 **В программе:**  
-Раскрывает работу мастеров — фактуры, цвет, индивидуальный почерк
+<span class="emphasis">Раскрывает Работу Мастеров</span>
 
 ### Наталья Логинова
 

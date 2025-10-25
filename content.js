@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "nowrap"
+    version: "masters"
   },
   program: {
     intro: [
@@ -129,7 +129,7 @@ const CONTENT = {
         "Курирует программы в&nbsp;Высшей Британской школе дизайна",
         "Ведёт авторские путешествия с&nbsp;2008&nbsp;года"
       ],
-      inProgram: "Раскрывает работу мастеров&nbsp;— фактуры, цвет, индивидуальный почерк"
+      inProgram: "<span class=\"emphasis\">Раскрывает Работу Мастеров</span>"
     },
     {
       name: "Наталья Логинова",
