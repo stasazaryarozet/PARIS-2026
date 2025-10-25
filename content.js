@@ -22,7 +22,7 @@ const CONTENT = {
       "В&nbsp;интерьерах видны соотношения фактур, тонкости цвета, работа с&nbsp;материалами.",
       "Не&#124;обход&#124;им ли<br><span class=\"emphasis\">контакт с&nbsp;Реальностью</span><br>?",
       "<div class=\"curator-separator\">•</div>",
-      "<h2 class=\"material-title\"><strong>МАТЕРИАЛ</strong>&nbsp;— ГЛАВНЫЙ ИСТОЧНИК ВДОХНОВЕНИЯ</h2>",
+      "<h2 class=\"material-title\"><strong>МАТЕРИАЛ</strong>&nbsp;— ИСТОЧНИК ВДОХНОВЕНИЯ</h2>",
       "Парижские дизайнеры смешивают новое со&nbsp;старым.<br>Интерьер без&nbsp;предметов с&nbsp;историей выглядит неживо."
     ],
     approach: {
