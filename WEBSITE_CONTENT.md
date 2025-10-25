@@ -6,7 +6,7 @@ og_title: "Индивидуальный почерк ар-деко. 100 лет"
 og_description: "4 дня. Фактуры, материалы, атмосфера. Можно ли ощутить словами?"
 og_image: "https://parisinjanuary.ru/og-image.jpg"
 og_url: "https://parisinjanuary.ru"
-version: "caps-locations"
+version: "name-highlight"
 ---
 
 # Индивидуальный почерк ар-деко<br><span class="hero-accent">100 лет</span><br><span class="hero-bullet">•</span>
@@ -25,7 +25,7 @@ version: "caps-locations"
 
 ## Программа
 
-Deniot, Liaigre, <span class="emphasis">Eileen Gray</span>, Aalto. У каждого свой <span class="emphasis">почерк</span>.
+Deniot, Liaigre, <span class="name-highlight">Eileen Gray</span>, Aalto. У каждого свой <span class="emphasis">почерк</span>.
 
 В интерьерах видны соотношения фактур, тонкости цвета, работа с материалами.
 
@@ -68,7 +68,7 @@ Rue de Seine. Квартал антикваров с 1970-х. Лак. Хром. 
 **Galerie Vallois**  
 (41 rue de Seine)
 
-Контакт с оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027 — <span class="emphasis">Eileen Gray</span>
+Контакт с оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027 — <span class="name-highlight">Eileen Gray</span>
 
 **Palais de Tokyo
 +
