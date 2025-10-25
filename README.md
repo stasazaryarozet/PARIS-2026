@@ -52,9 +52,10 @@ WEBSITE_CONTENT.md  ← единственный источник правды (
    git add -A && git commit -m "v<NN>: <описание>" && git push
    ```
 
-Альтернатива (единая команда):
+Альтернатива (единая команда, поддерживает кодовые имена версий):
 ```bash
-tools/release.sh v<NN> "Описание"
+tools/release.sh v<NN>-<codename> "Описание"
+# пример: tools/release.sh v125-aurora "hero subtitle centering"
 ```
 
 ## Инструменты
