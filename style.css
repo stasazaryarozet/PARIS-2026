@@ -274,8 +274,8 @@ section {
 
 /* Emphasis styling */
 .emphasis {
-  color: var(--chrome);
-  font-weight: 700;
+  color: var(--copper);
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.8;
