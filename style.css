@@ -895,9 +895,11 @@ section {
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
+.booking h2,
 .booking-form label,
 .booking-form .btn-primary,
-.booking-form small {
+.booking-form small,
+.booking-form input::placeholder {
   text-transform: uppercase;
 }
 
