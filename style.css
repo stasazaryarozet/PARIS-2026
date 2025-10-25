@@ -948,13 +948,18 @@ section {
   color: var(--text-muted);
   margin: 1.5rem 0;
   display: flex;
-  align-items: flex-start; /* выравниваем по верхней линии первой строки */
+  flex-direction: column;            /* текст сверху, чекбокс снизу */
+  align-items: center;               /* центр по горизонтали */
+  text-align: center;                /* центрируем многострочный текст */
   gap: 0.75rem;
 }
 
 .form-consent input[type="checkbox"] {
-  margin-top: 0.35em; /* оптическое выравнивание чекбокса с первой строкой */
+  margin-top: 0;                     /* в колонке отступ не нужен */
   flex: 0 0 auto;
+  transform: scale(1.6);             /* крупнее стандартного */
+  transform-origin: center;
+  accent-color: var(--accent-red);
 }
 
 .form-consent input[type="checkbox"]:focus-visible {
@@ -963,8 +968,10 @@ section {
 }
 
 .form-consent label {
-  line-height: 1.6; /* устойчивое межстрочное для многострочного текста */
+  order: -1;                          /* текст первым, чекбокс вторым */
+  line-height: 1.6;                  /* устойчивое межстрочное для многострочного текста */
   flex: 1 1 auto;
+  max-width: 48ch;                   /* комфортная ширина для чтения */
 }
 
 .form-submit {
