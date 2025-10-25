@@ -102,7 +102,7 @@ const CONTENT = {
     {
       number: "ДЕНЬ IV",
       date: "18 января",
-      title: "Эргономика —<br>это забота",
+      title: "ЭРГОНОМИКА —<br>ЭТО ЗАБОТА",
       theme: "",
       locations: [
         {
