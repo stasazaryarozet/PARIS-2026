@@ -33,7 +33,7 @@ Deniot, Liaigre, <span class="emphasis">Eileen Gray</span>, Aalto. У каждо
 
 <div class="curator-separator">•</div>
 
-<h2 class="material-title"><strong>Материал</strong> — главный источник вдохновения</h2>
+<h2 class="material-title"><strong>МАТЕРИАЛ</strong> — ГЛАВНЫЙ ИСТОЧНИК ВДОХНОВЕНИЯ</h2>
 
 Парижские дизайнеры смешивают новое со старым.<br>Интерьер без предметов с историей выглядит неживо.
 
