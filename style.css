@@ -733,6 +733,8 @@ section {
   gap: 3rem;
   max-width: 900px;
   margin: 0 auto;
+  align-items: stretch; /* растягиваем элементы по высоте строки */
+  grid-auto-rows: 1fr;  /* все элементы строки получают одинаковую высоту */
 }
 
 .curator-card {
@@ -744,6 +746,7 @@ section {
   display: flex;
   flex-direction: column;
   min-height: 360px;
+  height: 100%;
 }
 
 .curator-card:hover {
