@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "subtle"
+    version: "bold-now"
   },
   program: {
     intro: [
@@ -160,7 +160,7 @@ const CONTENT = {
     {
       icon: "€",
       title: "Стоимость",
-      description: "",
+      description: "---",
       price: "1 550&nbsp;€"
     }
   ]
