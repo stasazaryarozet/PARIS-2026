@@ -632,6 +632,7 @@ section {
   font-size: 1.5rem;
   margin-bottom: 0.25rem;
   font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 @media (min-width: 768px) {
@@ -903,12 +904,16 @@ section {
 }
 
 .booking h2,
-.booking-form label,
 .booking-form .btn-primary,
 .booking-form small,
 .booking-form input::placeholder {
   text-transform: uppercase;
   letter-spacing: var(--caps-tracking);
+}
+
+.booking-form label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .form-group {
