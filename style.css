@@ -178,6 +178,11 @@ h1 {
   50% { filter: brightness(1.4); }
 }
 
+@keyframes silverShine {
+  0%, 100% { filter: brightness(1.1); }
+  50% { filter: brightness(1.35); }
+}
+
 h2 { 
   font-size: clamp(2rem, 6vw, 3.5rem);
   letter-spacing: -0.015em;
@@ -293,12 +298,25 @@ section {
   line-height: 1.8;
 }
 
-/* Days accent - larger and decorative */
+/* Days accent - larger and decorative with silver shine */
 .days-accent {
   font-size: 1.6rem;
   font-family: var(--font-deco);
   font-weight: 600;
   letter-spacing: 0.12em;
+  background: linear-gradient(135deg, 
+    #A8A8A8 0%,
+    #D3D3D3 25%,
+    #F5F5F5 50%,
+    #D3D3D3 75%,
+    #A8A8A8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.1);
+  display: inline-block;
+  animation: silverShine 3s ease-in-out infinite;
 }
 
 .hero-meta {
