@@ -340,8 +340,8 @@
         const modalText = document.querySelector('#thankYouModal .modal-text');
         const modalClose = document.querySelector('#thankYouModal .modal-close');
 
-        if (nameLabel && F.name_label) nameLabel.textContent = F.name_label;
-        if (contactLabel && F.contact_label) contactLabel.textContent = F.contact_label;
+        if (nameLabel && F.name_label) nameLabel.innerHTML = F.name_label;
+        if (contactLabel && F.contact_label) contactLabel.innerHTML = F.contact_label;
         if (contactInput && F.contact_placeholder) contactInput.placeholder = F.contact_placeholder;
         if (contactHint && F.contact_hint) contactHint.textContent = F.contact_hint;
         if (consentLabel && F.consent_label) consentLabel.innerHTML = F.consent_label;
