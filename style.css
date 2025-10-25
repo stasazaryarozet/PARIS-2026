@@ -250,14 +250,11 @@ section {
 
 .hero-subtitle {
   font-size: 1rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
   opacity: 0.95;
   font-family: var(--font-body);
   font-weight: 500;
-  /* Центровка блока и текста */
-  max-width: 65ch;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
   text-align: center;
 }
 
