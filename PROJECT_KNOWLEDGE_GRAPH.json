@@ -1,0 +1,523 @@
+{
+  "meta": {
+    "project": "paris-2026",
+    "format_version": "1.0",
+    "created": "2025-10-26",
+    "purpose": "Структурированное представление понятийной модели проекта для передачи между ИИ-агентами",
+    "encoding": "UTF-8"
+  },
+  
+  "core_concepts": {
+    "project_essence": {
+      "id": "project_essence",
+      "type": "root",
+      "name": "Кураторский тур Париж 2026",
+      "description": "Премиальный 4-дневный тур по ар-деко Парижу с экспертами",
+      "keywords": ["ар-деко", "Париж", "кураторская программа", "малая группа", "премиум"],
+      "core_values": ["экспертность", "камерность", "атмосфера", "индивидуальный_подход"]
+    },
+    
+    "architecture": {
+      "id": "architecture",
+      "type": "technical",
+      "name": "Архитектура сайта",
+      "pattern": "single_source_of_truth",
+      "components": {
+        "content_layer": {
+          "source_of_truth": "WEBSITE_CONTENT.md",
+          "generated": "content.js",
+          "rule": "WEBSITE_CONTENT.md → build.py → content.js. Никогда не редактировать content.js вручную",
+          "philosophy": "Markdown как единственный источник правды, JS генерируется автоматически"
+        },
+        "presentation_layer": {
+          "structure": "index.html",
+          "styling": "style.css",
+          "behavior": "inline JavaScript в index.html",
+          "pattern": "Чистый HTML/CSS/JS без фреймворков"
+        },
+        "bilingual_support": {
+          "languages": ["ru", "ar"],
+          "content_files": ["WEBSITE_CONTENT.md", "WEBSITE_CONTENT_AR.md"],
+          "switching": "Кнопка переключения языка, localStorage для сохранения выбора",
+          "direction": "RTL для арабского, LTR для русского"
+        }
+      },
+      "principles": [
+        "Простота превыше сложности",
+        "Один источник правды для контента",
+        "Автоматическая генерация, не ручное редактирование",
+        "Валидация перед каждым коммитом"
+      ]
+    },
+    
+    "workflow": {
+      "id": "workflow",
+      "type": "process",
+      "name": "Рабочий процесс",
+      "deployment_cycle": [
+        "Редактирование WEBSITE_CONTENT.md",
+        "python3 build.py (генерация content.js)",
+        "Валидация и тесты",
+        "git add, commit, push",
+        "Автодеплой на GitHub Pages"
+      ],
+      "versioning": {
+        "format": "v{number}-{description}",
+        "examples": ["v179-hide-badge", "v178-headers-larger"],
+        "stored_in": "WEBSITE_CONTENT.md meta.version",
+        "visibility": "Скрыт от пользователей (display: none)"
+      },
+      "validation": {
+        "pre_commit_hook": "Автоматическая регенерация content.js при изменении WEBSITE_CONTENT.md",
+        "test_suite": "test_build.py с 10 тестами",
+        "checks": ["синтаксис JS", "структура данных", "критические элементы"]
+      }
+    },
+    
+    "design_philosophy": {
+      "id": "design_philosophy",
+      "type": "aesthetic",
+      "name": "Дизайн-философия",
+      "core_principles": {
+        "minimalism": {
+          "description": "Минимализм без холодности",
+          "implementation": "Чистые линии, воздух, приглушенная палитра"
+        },
+        "elegance": {
+          "description": "Элегантность и премиальность",
+          "implementation": "Качественная типографика, деликатные акценты, внимание к деталям"
+        },
+        "atmosphere": {
+          "description": "Атмосфера важнее декоративности",
+          "implementation": "Настроение через типографику и пространство, не через графику"
+        },
+        "restraint": {
+          "description": "Сдержанность и вкус",
+          "implementation": "Меньше да лучше, каждый элемент оправдан"
+        }
+      },
+      "typography": {
+        "heading_font": "Cormorant Garamond (serif, elegant)",
+        "body_font": "Inter (sans-serif, readable)",
+        "accent_font": "Forum (decorative, art-deco echo)",
+        "hierarchy": "Выразительная типографическая иерархия"
+      },
+      "color_palette": {
+        "primary": "#E31B1B (accent red)",
+        "secondary": "#0A2342 (midnight blue)",
+        "neutral": ["#F8F6F3 (warm white)", "#E8E4DD (soft beige)", "#2C2C2C (charcoal)"],
+        "philosophy": "Приглушенная элегантность с красным акцентом"
+      },
+      "spacing": {
+        "principle": "Generous whitespace",
+        "implementation": "Воздух между секциями, не перегружать"
+      }
+    },
+    
+    "content_strategy": {
+      "id": "content_strategy",
+      "type": "communication",
+      "name": "Контент-стратегия",
+      "tone_of_voice": {
+        "characteristics": ["доверительный", "экспертный", "не продающий", "атмосферный"],
+        "avoid": ["маркетинговые штампы", "восклицания", "давление", "преувеличения"]
+      },
+      "key_messages": {
+        "expertise": "Экспертное кураторство (Розет + Логинова)",
+        "intimacy": "Малая группа, индивидуальный подход",
+        "uniqueness": "100 лет ар-деко, уникальная программа",
+        "atmosphere": "Фактуры, материалы, атмосфера - не туристический штамп"
+      },
+      "structure": {
+        "hero": "Эмоциональный захват + ключевая информация",
+        "program": "4 дня детальной программы",
+        "curators": "Эксперты, их подход",
+        "inclusions": "Что включено",
+        "cta": "Booking form без агрессии"
+      },
+      "semantic_richness": {
+        "principle": "Можно ли ощутить словами?",
+        "implementation": "Конкретные детали вместо абстракций",
+        "examples": ["фактуры", "материалы", "атмосфера", "малабарское дерево", "стеклянные кирпичи"]
+      }
+    },
+    
+    "user_experience": {
+      "id": "user_experience",
+      "type": "interaction",
+      "name": "Пользовательский опыт",
+      "navigation": {
+        "pattern": "Плавная прокрутка с якорными ссылками",
+        "sections": ["Программа", "Кураторы", "Что входит", "Забронировать"],
+        "mobile": "Адаптивное меню-бургер"
+      },
+      "booking_flow": {
+        "trigger": "Кнопка 'Забронировать'",
+        "implementation": "Модальное окно с формой",
+        "fields": ["имя", "email", "телефон", "комментарий (необязательно)"],
+        "validation": "Клиентская валидация перед отправкой",
+        "backend": "Formspree для обработки"
+      },
+      "language_switching": {
+        "visibility": "Всегда видимая кнопка RU/AR",
+        "persistence": "Сохранение выбора в localStorage",
+        "rtl_support": "Автоматическая смена направления текста"
+      },
+      "responsive_design": {
+        "breakpoints": ["mobile (<768px)", "tablet (768-1024px)", "desktop (>1024px)"],
+        "approach": "Mobile-first с прогрессивным улучшением"
+      }
+    },
+    
+    "technical_patterns": {
+      "id": "technical_patterns",
+      "type": "engineering",
+      "name": "Технические паттерны",
+      "recurring_patterns": {
+        "content_generation": {
+          "pattern": "Markdown → Python parser → JavaScript object",
+          "rationale": "Человекочитаемый source of truth",
+          "implementation": "build.py с YAML frontmatter парсингом"
+        },
+        "state_management": {
+          "pattern": "Vanilla JS без фреймворков",
+          "storage": "localStorage для языка и предпочтений",
+          "rationale": "Простота, нет зависимостей"
+        },
+        "deployment": {
+          "pattern": "Git push → GitHub Actions → GitHub Pages",
+          "automation": "Pre-commit hooks для валидации",
+          "cdn": "GitHub Pages с HTTPS"
+        },
+        "form_handling": {
+          "pattern": "Frontend form → Formspree API → Email notification",
+          "validation": "Двойная валидация (клиент + сервер)",
+          "ux": "Модальное окно с состояниями (отправка/успех/ошибка)"
+        }
+      }
+    },
+    
+    "communication_patterns": {
+      "id": "communication_patterns",
+      "type": "meta",
+      "name": "Паттерны коммуникации с пользователем",
+      "user_preferences": {
+        "autonomy": "Максимальная агентность, минимум вопросов",
+        "language": "Всегда отвечать на русском",
+        "approach": "Делать, не спрашивать, если путь очевиден",
+        "error_handling": "Пробовать радикально разные подходы перед обращением к пользователю"
+      },
+      "feedback_incorporation": {
+        "pattern": "Итеративное уточнение дизайна и контента",
+        "typical_feedback": [
+          "Убрать/добавить элемент",
+          "Изменить формулировку",
+          "Настроить типографику/отступы",
+          "Скрыть/показать информацию"
+        ],
+        "response": "Немедленная имплементация с коммитом и деплоем"
+      },
+      "versioning_commits": {
+        "format": "v{number}-{slug}: {Description}",
+        "examples": [
+          "v179-hide-badge: Hide version badge from site",
+          "v178-headers-larger: Increase h2 size to 2.5rem"
+        ]
+      }
+    },
+    
+    "quality_standards": {
+      "id": "quality_standards",
+      "type": "principles",
+      "name": "Стандарты качества",
+      "code_quality": {
+        "readability": "Чистый, читаемый код без магии",
+        "comments": "Комментарии для понимания намерений",
+        "structure": "Логическое разделение на секции",
+        "validation": "Обязательное тестирование перед деплоем"
+      },
+      "content_quality": {
+        "accuracy": "Фактическая точность информации",
+        "consistency": "Единый tone of voice",
+        "completeness": "Все обещанные детали присутствуют",
+        "polish": "Вычитка и редактура"
+      },
+      "design_quality": {
+        "consistency": "Единая система дизайна",
+        "accessibility": "Читаемость, контрастность, семантика",
+        "performance": "Оптимизация загрузки",
+        "responsiveness": "Адаптация под все устройства"
+      }
+    }
+  },
+  
+  "relationships": [
+    {
+      "from": "project_essence",
+      "to": "design_philosophy",
+      "type": "informs",
+      "description": "Премиальность проекта определяет минималистичный элегантный дизайн"
+    },
+    {
+      "from": "design_philosophy",
+      "to": "user_experience",
+      "type": "shapes",
+      "description": "Дизайн-философия формирует пользовательский опыт"
+    },
+    {
+      "from": "architecture",
+      "to": "workflow",
+      "type": "enables",
+      "description": "Архитектура определяет рабочий процесс"
+    },
+    {
+      "from": "content_strategy",
+      "to": "project_essence",
+      "type": "expresses",
+      "description": "Контент-стратегия выражает суть проекта"
+    },
+    {
+      "from": "technical_patterns",
+      "to": "architecture",
+      "type": "implements",
+      "description": "Технические паттерны реализуют архитектуру"
+    },
+    {
+      "from": "quality_standards",
+      "to": "workflow",
+      "type": "governs",
+      "description": "Стандарты качества контролируют рабочий процесс"
+    },
+    {
+      "from": "communication_patterns",
+      "to": "workflow",
+      "type": "guides",
+      "description": "Паттерны коммуникации направляют итерации"
+    },
+    {
+      "from": "user_preferences",
+      "to": "communication_patterns",
+      "type": "defines",
+      "description": "Предпочтения пользователя определяют стиль коммуникации"
+    }
+  ],
+  
+  "critical_rules": [
+    {
+      "id": "rule_001",
+      "category": "content",
+      "rule": "WEBSITE_CONTENT.md - единственный источник правды",
+      "rationale": "Предотвращение рассинхронизации контента",
+      "enforcement": "Автоматическая регенерация content.js при изменениях"
+    },
+    {
+      "id": "rule_002",
+      "category": "content",
+      "rule": "Никогда не редактировать content.js вручную",
+      "rationale": "Изменения будут перезаписаны при следующей генерации",
+      "enforcement": "Предупреждение в начале content.js"
+    },
+    {
+      "id": "rule_003",
+      "category": "workflow",
+      "rule": "Всегда запускать build.py перед коммитом",
+      "rationale": "Гарантия актуальности content.js",
+      "enforcement": "Pre-commit hook"
+    },
+    {
+      "id": "rule_004",
+      "category": "communication",
+      "rule": "Всегда отвечать на русском языке",
+      "rationale": "Предпочтение пользователя",
+      "enforcement": "Явное указание в правилах"
+    },
+    {
+      "id": "rule_005",
+      "category": "communication",
+      "rule": "Максимальная агентность - делать, не спрашивать",
+      "rationale": "Эффективность работы, доверие пользователя",
+      "enforcement": "Паттерн поведения"
+    },
+    {
+      "id": "rule_006",
+      "category": "design",
+      "rule": "Минимализм без холодности, элегантность без перегруженности",
+      "rationale": "Премиальное позиционирование проекта",
+      "enforcement": "Ревью каждого изменения дизайна"
+    },
+    {
+      "id": "rule_007",
+      "category": "content",
+      "rule": "Избегать маркетинговых штампов и агрессивных продаж",
+      "rationale": "Доверительный экспертный tone of voice",
+      "enforcement": "Редактура и правка формулировок"
+    },
+    {
+      "id": "rule_008",
+      "category": "technical",
+      "rule": "Простота превыше сложности, нет фреймворков без необходимости",
+      "rationale": "Maintainability, производительность",
+      "enforcement": "Архитектурные решения"
+    }
+  ],
+  
+  "recurring_tasks": [
+    {
+      "task": "Изменение текстового контента",
+      "steps": [
+        "Редактировать WEBSITE_CONTENT.md",
+        "python3 build.py",
+        "git add, commit, push"
+      ]
+    },
+    {
+      "task": "Изменение стилей",
+      "steps": [
+        "Редактировать style.css",
+        "Проверить на всех breakpoints",
+        "git add, commit, push"
+      ]
+    },
+    {
+      "task": "Добавление нового языка",
+      "steps": [
+        "Создать WEBSITE_CONTENT_{LANG}.md",
+        "Обновить build.py для парсинга",
+        "Добавить переключатель в UI",
+        "Тестирование RTL/LTR"
+      ]
+    },
+    {
+      "task": "Реакция на фидбек пользователя",
+      "steps": [
+        "Понять суть правки",
+        "Имплементировать изменение",
+        "Коммит с понятным сообщением",
+        "Деплой (автоматический)"
+      ]
+    }
+  ],
+  
+  "file_structure": {
+    "source_files": {
+      "WEBSITE_CONTENT.md": "Основной контент на русском (source of truth)",
+      "WEBSITE_CONTENT_AR.md": "Контент на арабском (source of truth)",
+      "style.css": "Все стили проекта",
+      "index.html": "HTML структура + inline JS",
+      "build.py": "Генератор content.js из markdown",
+      "test_build.py": "Тестовый набор для валидации"
+    },
+    "generated_files": {
+      "content.js": "Автогенерированный JS объект с контентом (НЕ РЕДАКТИРОВАТЬ)"
+    },
+    "documentation": {
+      "PROJECT_KNOWLEDGE_GRAPH.json": "Этот файл - понятийная модель проекта",
+      "AI_COMMUNICATION_LOG.md": "История взаимодействий и решений",
+      "TO_GEMINI.md": "Инструкции для AI-ассистентов"
+    },
+    "git": {
+      ".git/hooks/pre-commit": "Валидация перед коммитом"
+    }
+  },
+  
+  "domain_knowledge": {
+    "art_deco": {
+      "period": "1920-1939",
+      "characteristics": ["геометрические формы", "роскошные материалы", "симметрия", "модернистская элегантность"],
+      "key_figures": ["Jean-Louis Deniot", "Eileen Gray", "Alvar Aalto"],
+      "paris_context": "Париж - эпицентр движения ар-деко"
+    },
+    "target_audience": {
+      "profile": "Взыскательные ценители искусства и дизайна",
+      "values": ["аутентичность", "экспертность", "качество", "камерность"],
+      "pain_points": ["массовые туры", "поверхностность", "туристические клише"],
+      "desires": ["глубокое погружение", "экспертный взгляд", "атмосфера", "индивидуальный подход"]
+    }
+  },
+  
+  "success_metrics": {
+    "technical": {
+      "build_validation": "100% тестов проходит",
+      "deployment": "Автоматический деплой без ошибок",
+      "page_load": "Быстрая загрузка без тяжелых ресурсов"
+    },
+    "ux": {
+      "responsive": "Корректное отображение на всех устройствах",
+      "accessibility": "Читаемость, контрастность, семантика",
+      "language_switch": "Плавное переключение RU/AR"
+    },
+    "content": {
+      "tone_consistency": "Единый tone of voice",
+      "completeness": "Вся информация для принятия решения",
+      "engagement": "Атмосферность, не сухость"
+    }
+  },
+  
+  "anti_patterns": {
+    "avoid": [
+      {
+        "pattern": "Ручное редактирование content.js",
+        "why": "Будет перезаписано при следующей генерации",
+        "instead": "Редактировать WEBSITE_CONTENT.md"
+      },
+      {
+        "pattern": "Добавление фреймворков без необходимости",
+        "why": "Усложнение без выгоды",
+        "instead": "Vanilla JS для простых задач"
+      },
+      {
+        "pattern": "Маркетинговые штампы в тексте",
+        "why": "Противоречит tone of voice",
+        "instead": "Конкретные детали и атмосфера"
+      },
+      {
+        "pattern": "Перегруженный дизайн",
+        "why": "Противоречит минимализму",
+        "instead": "Больше воздуха, меньше элементов"
+      },
+      {
+        "pattern": "Коммит без тестирования",
+        "why": "Риск поломки продакшена",
+        "instead": "Всегда запускать build.py и тесты"
+      }
+    ]
+  },
+  
+  "evolution_log": {
+    "major_iterations": [
+      {
+        "phase": "v1-100",
+        "focus": "Базовая архитектура и контент",
+        "achievements": ["Одностраничник", "Build system", "Контентная стратегия"]
+      },
+      {
+        "phase": "v101-150",
+        "focus": "Дизайн-полировка и UX",
+        "achievements": ["Типографическая система", "Responsive design", "Форма букинга"]
+      },
+      {
+        "phase": "v151-179",
+        "focus": "Детальная доводка и билингвальность",
+        "achievements": ["RU/AR переключение", "Финальные правки дизайна", "Скрытие version badge"]
+      }
+    ]
+  },
+  
+  "future_considerations": {
+    "potential_enhancements": [
+      "Добавление английского языка",
+      "Галерея изображений прошлых туров",
+      "Отзывы участников",
+      "Календарь будущих дат",
+      "Интеграция с платежной системой"
+    ],
+    "technical_debt": [
+      "Минимальный - архитектура чистая и простая"
+    ],
+    "scalability": [
+      "Легко масштабируется на другие туры/программы",
+      "Шаблон может быть переиспользован"
+    ]
+  }
+}
+
