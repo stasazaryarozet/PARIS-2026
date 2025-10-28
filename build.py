@@ -173,14 +173,19 @@ def parse_content(md_path):
     
     data = {}
     
-    # HERO — новый формат без болдов
+    # HERO — гибкий regex (Priority #4: мягче для вариативности Markdown)
     # Формат:
     # # Title with <span class="hero-accent">100 лет</span>
     # 
     # Subtitle lines...
     # 
     # 15–18+ января 2026 | до 12 человек | 1 550 €
-    hero_match = re.search(r'^# (.+?)\n\n(.+?)\n\n([\d–+\s\w]+)\s*\|\s*(.+?)\s*\|\s*(.+?)(?:\n|$)', body, re.DOTALL | re.MULTILINE)
+    # 
+    # Поддерживает:
+    # - Extra whitespace (2+ переносов)
+    # - Альтернативные форматы дат (дефис, тире, пробелы)
+    # - Multiline title/subtitle
+    hero_match = re.search(r'^#\s+(.+?)\n\n+(.+?)\n\n+([\d–\-+\s\wа-яА-ЯёЁ.]+?)\s*\|\s*(.+?)\s*\|\s*(.+?)(?:\n|$)', body, re.DOTALL | re.MULTILINE)
     if hero_match:
         title_raw = hero_match.group(1).strip()
         title_html = title_raw.replace('\n', '<br>')
