@@ -49,12 +49,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   
   <link id="style-link" rel="stylesheet" href="style.css" />
-  <script>
-    (function(){
-      var l = document.getElementById('style-link');
-      if (l) l.href = 'style.css?v=' + Date.now();
-    })();
-  </script>
+  <!-- CSS версионируется после загрузки content.js -->
 </head>
 <body id="top">
   <!-- Version Badge -->
@@ -194,15 +189,66 @@
   </div>
 
   <script>
-    // Load content.js with cache busting
+    // Versioned cache busting: load content.js first, then apply version to CSS
     (function() {
       const script = document.createElement('script');
+      // Initial load with Date.now() to ensure fresh content
       script.src = 'content.js?v=' + Date.now();
       document.head.appendChild(script);
+      
       script.onload = function() {
+        // Apply versioned cache busting to CSS
+        const version = (window.CONTENT && CONTENT.meta && CONTENT.meta.version) || Date.now();
+        const styleLink = document.getElementById('style-link');
+        if (styleLink) {
+          styleLink.href = 'style.css?v=' + version;
+        }
+        
+        // Update dynamic SEO meta from CONTENT
+        applyMetaFromContent();
+        
+        // Initialize app
         init();
       };
     })();
+    
+    // Synchronize SEO/OG/Twitter meta tags from CONTENT.meta
+    function applyMetaFromContent() {
+      const M = (window.CONTENT && CONTENT.meta) || {};
+      
+      // Update document title
+      if (M.title) {
+        document.title = M.title + ' — ' + (M.ogTitle || 'Париж январь 2026');
+      }
+      
+      // Helper to set meta content
+      const setMeta = (selector, value) => {
+        if (!value) return;
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute('content', value);
+      };
+      
+      // Basic meta
+      setMeta('meta[name="description"]', M.description);
+      setMeta('meta[name="keywords"]', M.keywords);
+      
+      // Open Graph
+      setMeta('meta[property="og:title"]', M.ogTitle || M.title);
+      setMeta('meta[property="og:description"]', M.ogDescription || M.description);
+      setMeta('meta[property="og:image"]', M.ogImage);
+      setMeta('meta[property="og:url"]', M.url);
+      
+      // Twitter
+      setMeta('meta[name="twitter:title"]', M.ogTitle || M.title);
+      setMeta('meta[name="twitter:description"]', M.ogDescription || M.description);
+      setMeta('meta[name="twitter:image"]', M.ogImage);
+      
+      // Canonical URL
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical && M.url) {
+        canonical.setAttribute('href', M.url);
+      }
+    }
     
     // Render content
     function render() {
