@@ -298,6 +298,24 @@ section {
   line-height: 1.8;
 }
 
+/* Red accent for special words like "Поездка" */
+.red-accent {
+  color: var(--accent-red);
+}
+
+/* Architect name styling - elegant and distinguished */
+.architect-name {
+  display: block;
+  font-family: var(--font-deco);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--copper);
+  margin: 1.5rem 0;
+  text-align: center;
+  font-style: italic;
+}
+
 /* Days accent - larger and decorative with silver shine */
 .days-accent {
   font-size: 1.6rem;
