@@ -303,17 +303,19 @@ section {
   color: var(--accent-red);
 }
 
-/* Architect name styling - elegant and distinguished */
+/* Architect name styling - subtle and congruent */
 .architect-name {
   display: block;
-  font-family: var(--font-deco);
-  font-size: 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
   font-weight: 400;
-  letter-spacing: 0.15em;
-  color: var(--copper);
-  margin: 1.5rem 0;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin: 1rem 0;
   text-align: center;
-  font-style: italic;
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Days accent - larger and decorative with silver shine */
