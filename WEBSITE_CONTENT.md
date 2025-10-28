@@ -6,7 +6,7 @@ og_title: "Индивидуальный почерк ар-деко. 100 лет"
 og_description: "4 дня. Фактуры, материалы, атмосфера. Можно ли ощутить словами?"
 og_image: "https://parisinjanuary.ru/og-image.jpg"
 og_url: "https://parisinjanuary.ru"
-version: "aalto-original"
+version: "aalto-styled"
 ---
 
 # Индивидуальный почерк ар-деко<br><span class="hero-accent">100 лет</span><br><span class="hero-bullet">•</span>
@@ -108,9 +108,9 @@ Trocadéro**
 ## ДЕНЬ IV • 18 января
 ### ЭРГОНОМИКА —<br>ЭТО ЗАБОТА
 
-**Поездка<br>в Maison Louis Carré**
+**<span class="red-accent">Поездка</span><br>в Maison Louis Carré**
 
-Alvar Aalto
+<span class="architect-name">Alvar Aalto</span>
 
 Волна потолка: свет и геометрия. Гнутые под человека формы. Теплая ручка двери.
 
