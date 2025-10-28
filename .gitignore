@@ -1,26 +1,120 @@
-# Python
-.venv/
+# === PYTHON ===
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
 
-# Backups
-*.backup
-archive/
+# === NODE.JS (если понадобится) ===
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
 
-# Logs
-*.log
-
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
+# === IDEs & EDITORS ===
 .idea/
+.vscode/
 *.swp
 *.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.vs/
 
-# Temporary
-tmp/
-temp/
+# === OS FILES ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# === TEMPORARY FILES ===
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# === BUILD ARTIFACTS ===
+dist/
+build/
+*.min.js
+*.min.css
+
+# === ENVIRONMENT ===
+.env
+.env.local
+.env.*.local
+*.env
+
+# === SECRETS ===
+secrets/
+credentials/
+*.key
+*.pem
+*.p12
+
+# === DEBUGGING ===
+reasoning.log
+debug.log
+error.log
+
+# === LOCAL TESTING ===
+test_*.html
+scratch/
+playground/
+
+# === DOCUMENTATION DRAFTS ===
+drafts/
+notes/
+TODO_PRIVATE.md
+
+# === MISC ===
+*.orig
+.cache/
+
+# === AI Analysis Files ===
+*_consciousness.md
+*_thinking_analysis.md
+*_analysis.md
+
+# === History ===
+*History.txt
+*_history.txt
+
+# === Scripts ===
+pre-commit.sh

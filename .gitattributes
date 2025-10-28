@@ -1,0 +1,70 @@
+# Git Attributes для paris-2026
+# Определяет как Git обрабатывает различные типы файлов
+
+# === AUTO DETECT TEXT FILES ===
+* text=auto
+
+# === SOURCE CODE ===
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# === DOCUMENTATION ===
+*.markdown text eol=lf
+README text eol=lf
+LICENSE text eol=lf
+AUTHORS text eol=lf
+CHANGELOG text eol=lf
+
+# === IMAGES ===
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.svg text eol=lf
+
+# === FONTS ===
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+
+# === ARCHIVES ===
+*.zip binary
+*.tar binary
+*.gz binary
+*.bz2 binary
+
+# === VIDEOS ===
+*.mp4 binary
+*.mov binary
+*.avi binary
+*.webm binary
+
+# === LINGUIST OVERRIDES ===
+# Помечаем сгенерированные файлы чтобы GitHub их не учитывал в статистике
+*.min.js linguist-generated=true
+*.min.css linguist-generated=true
+
+# === DIFF STRATEGIES ===
+# Улучшенные diff для различных типов файлов
+*.html diff=html
+*.css diff=css
+*.md diff=markdown
+*.py diff=python
+
+# === MERGE STRATEGIES ===
+# Специальные стратегии слияния для файлов
+*.md merge=union
+CHANGELOG.md merge=union
+
