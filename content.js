@@ -67,7 +67,7 @@ const CONTENT = {
         },
         {
           name: "<span class=\"caps\">Galerie Vallois</span>",
-          description: "(41 rue de Seine)\nКонтакт с&nbsp;оригиналами. Глубина лака Dunand. Патина Ruhlmann. Столик E-1027&nbsp;— Eileen Gray"
+          description: "(41 rue de Seine)\nКонтакт с&nbsp;оригиналами. Глубина лака Dunand. Патина Ruhlmann."
         },
         {
           name: "<span class=\"caps\">Palais de Tokyo\n+\nTrocadéro</span>",
@@ -107,7 +107,7 @@ const CONTENT = {
       locations: [
         {
           name: "<span class=\"caps\">Поездка<br>в Maison Louis Carré</span>",
-          description: "Волна потолка: свет и&nbsp;геометрия. Гнутые под&nbsp;человека формы. Теплая ручка двери.&nbsp;— <span class=\"emphasis\">Человечность модернизма</span>."
+          description: "Архитектор Алвар Аалто. Волна потолка: свет и&nbsp;геометрия. Гнутые под&nbsp;человека формы. Теплая ручка двери.&nbsp;— <span class=\"emphasis\">Человечность модернизма</span>."
         },
         {
           name: "<span class=\"caps\">Парк</span>",
@@ -135,8 +135,9 @@ const CONTENT = {
       name: "Наталья Логинова",
       role: "",
       bio: [
-        "Работала на&nbsp;телеканале «Культура».<br>Редактировала «Московское наследие».<br>Руководила Центром моды и&nbsp;дизайна Музея декоративного искусства",
-        "Иммигрировала в&nbsp;Город по&nbsp;любви"
+        "Работает гидом по&nbsp;теме «Париж через призму дизайна»<br>",
+        "Экс-руководитель Центра моды и&nbsp;дизайна Музея декоративного искусства, инициатор и&nbsp;соавтор проекта «Придумано и&nbsp;сделано в&nbsp;России»<br>",
+        "Ведёт авторские профессиональные путешествия по&nbsp;Парижу для&nbsp;дизайнеров и&nbsp;архитекторов"
       ],
       inProgram: "<span class=\"emphasis\">Открывает Париж</span>"
     }
