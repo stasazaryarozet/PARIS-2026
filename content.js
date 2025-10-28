@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "aalto-plain"
+    version: "handshake-v3"
   },
   program: {
     intro: [
@@ -48,6 +48,10 @@ const CONTENT = {
         {
           name: "<span class=\"caps\">Christian Liaigre</span>",
           description: "Шлифовка дерева до&nbsp;шелковистости. Глухой блеск и&nbsp;отточенные кромки камня. Чистота, точность&nbsp;— тишина формы"
+        },
+        {
+          name: "<span class=\"caps\">217, rue du Faubourg Saint-Honoré</span>",
+          description: "Контекстуальная точка: здесь жила и&nbsp;работала Eileen Gray (1920-е). Дом-призрак модернизма"
         },
         {
           name: "<span class=\"caps\">Музей</span>",
@@ -115,7 +119,7 @@ const CONTENT = {
         },
         {
           name: "<span class=\"caps\">Вечер</span>",
-          description: "Разговор"
+          description: "Разговор: синтез и&nbsp;итоги"
         }
       ]
     }
