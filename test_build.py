@@ -2,12 +2,21 @@
 """
 Тесты для build.py — автоматическая валидация генерации content.js
 Запуск: python3 test_build.py
+
+Fixes:
+- Added timeout (60s) to all subprocess calls to prevent hanging
+- Added progress indicators
+- Better error handling
 """
 
 import subprocess
 import json
 import re
+import sys
 from pathlib import Path
+
+# Constants
+TIMEOUT_SECONDS = 60  # Максимальное время выполнения каждой проверки
 
 def test_build():
     """Полная валидация build.py"""
@@ -17,22 +26,49 @@ def test_build():
     
     # 1. Генерация
     print("1. Запуск build.py...")
-    result = subprocess.run(['python3', 'build.py'], capture_output=True, text=True)
-    if result.returncode != 0:
-        errors.append(f"❌ build.py завершился с ошибкой: {result.stderr}")
+    try:
+        result = subprocess.run(
+            ['python3', 'build.py'], 
+            capture_output=True, 
+            text=True, 
+            timeout=TIMEOUT_SECONDS
+        )
+        if result.returncode != 0:
+            errors.append(f"❌ build.py завершился с ошибкой: {result.stderr}")
+            return errors
+        print("   ✅ Генерация завершена")
+    except subprocess.TimeoutExpired:
+        errors.append(f"❌ build.py превысил timeout ({TIMEOUT_SECONDS}s)")
         return errors
-    print("   ✅ Генерация завершена")
     
     # 2. Синтаксис JS
     print("2. Проверка синтаксиса JavaScript...")
-    result = subprocess.run(['node', '--check', 'content.js'], capture_output=True, text=True)
-    if result.returncode != 0:
-        # Fallback: выполнить файл под Node
-        fallback = subprocess.run(['node', '-e', 'require("./content.js");'], capture_output=True, text=True)
-        if fallback.returncode != 0:
-            errors.append(f"❌ Синтаксическая ошибка в content.js: {result.stderr or fallback.stderr}")
-            return errors
-    print("   ✅ Синтаксис валиден")
+    try:
+        result = subprocess.run(
+            ['node', '--check', 'content.js'], 
+            capture_output=True, 
+            text=True, 
+            timeout=TIMEOUT_SECONDS
+        )
+        if result.returncode != 0:
+            # Fallback: выполнить файл под Node
+            try:
+                fallback = subprocess.run(
+                    ['node', '-e', 'require("./content.js");'], 
+                    capture_output=True, 
+                    text=True, 
+                    timeout=TIMEOUT_SECONDS
+                )
+                if fallback.returncode != 0:
+                    errors.append(f"❌ Синтаксическая ошибка в content.js: {result.stderr or fallback.stderr}")
+                    return errors
+            except subprocess.TimeoutExpired:
+                errors.append(f"❌ Node.js проверка превысила timeout ({TIMEOUT_SECONDS}s)")
+                return errors
+        print("   ✅ Синтаксис валиден")
+    except subprocess.TimeoutExpired:
+        errors.append(f"❌ Проверка синтаксиса превысила timeout ({TIMEOUT_SECONDS}s)")
+        return errors
     
     # 3. Чтение content.js
     print("3. Парсинг content.js...")
