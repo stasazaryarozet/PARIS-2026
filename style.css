@@ -19,7 +19,6 @@
   --accent-red: #E31B1B;
   --midnight-blue: #0A2342;
   --chrome: #C0C0C0;
-  --copper: #B87333;
   --text-primary: #000000;
   --text-muted: #000000;
   --bg-primary: #ffffff;
@@ -299,6 +298,8 @@ section {
   line-height: 1.8;
 }
 
+/* (reverted: no special override for hero emphasis) */
+
 /* Red accent for special words like "Поездка" */
 .red-accent {
   color: var(--accent-red);
@@ -311,7 +312,7 @@ section {
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.15em;
-  color: var(--copper);
+  color: #B87333; /* local copper tone; isolated to Aalto only */
   margin: 1.5rem 0;
   text-align: center;
   font-style: italic;
