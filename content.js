@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "handshake-v3"
+    version: "handshake-v4"
   },
   program: {
     intro: [
@@ -51,7 +51,7 @@ const CONTENT = {
         },
         {
           name: "<span class=\"caps\">217, rue du Faubourg Saint-Honoré</span>",
-          description: "Контекстуальная точка: здесь жила и&nbsp;работала Eileen Gray (1920-е). Дом-призрак модернизма"
+          description: "Контекстуальная точка: фасад бывшей галереи «Jean Désert», которую Эйлин Грей открыла в&nbsp;1922&nbsp;году"
         },
         {
           name: "<span class=\"caps\">Музей</span>",
@@ -139,8 +139,8 @@ const CONTENT = {
       name: "Наталья Логинова",
       role: "",
       bio: [
-        "Работает гидом по&nbsp;теме «Париж через призму дизайна»<br>",
-        "Экс-руководитель Центра моды и&nbsp;дизайна Музея декоративного искусства, инициатор и&nbsp;соавтор проекта «Придумано и&nbsp;сделано в&nbsp;России»<br>",
+        "Работает гидом по&nbsp;теме «Париж через призму дизайна»",
+        "Экс-руководитель Центра моды и&nbsp;дизайна Музея декоративного искусства, инициатор и&nbsp;соавтор проекта «Придумано и&nbsp;сделано в&nbsp;России»",
         "Ведёт авторские профессиональные путешествия по&nbsp;Парижу для&nbsp;дизайнеров и&nbsp;архитекторов"
       ],
       inProgram: "<span class=\"emphasis\">Открывает Париж</span>"
