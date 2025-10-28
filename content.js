@@ -14,7 +14,7 @@ const CONTENT = {
     ogDescription: "4&nbsp;дня. Фактуры, материалы, атмосфера. Можно ли&nbsp;ощутить словами?",
     ogImage: "https://parisinjanuary.ru/og-image.jpg",
     url: "https://parisinjanuary.ru",
-    version: "badge-restore"
+    version: "aalto-original"
   },
   program: {
     intro: [
@@ -107,7 +107,7 @@ const CONTENT = {
       locations: [
         {
           name: "<span class=\"caps\">Поездка<br>в Maison Louis Carré</span>",
-          description: "Архитектор Алвар Аалто. Волна потолка: свет и&nbsp;геометрия. Гнутые под&nbsp;человека формы. Теплая ручка двери.&nbsp;— <span class=\"emphasis\">Человечность модернизма</span>."
+          description: "Alvar Aalto\nВолна потолка: свет и&nbsp;геометрия. Гнутые под&nbsp;человека формы. Теплая ручка двери.&nbsp;— <span class=\"emphasis\">Человечность модернизма</span>."
         },
         {
           name: "<span class=\"caps\">Парк</span>",
