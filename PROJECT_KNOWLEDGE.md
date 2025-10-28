@@ -1185,3 +1185,4 @@ quick_reference:
 **Составлено:** Объединение PROJECT_KNOWLEDGE_GRAPH.json + PROJECT_KNOWLEDGE_BASE.md  
 **Статус:** Canonical source of truth  
 **Следующее обновление:** По мере эволюции проекта
+
