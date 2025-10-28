@@ -19,6 +19,7 @@
   --accent-red: #E31B1B;
   --midnight-blue: #0A2342;
   --chrome: #C0C0C0;
+  --copper: #B87333;
   --text-primary: #000000;
   --text-muted: #000000;
   --bg-primary: #ffffff;
@@ -306,16 +307,14 @@ section {
 /* Architect name styling - subtle and congruent */
 .architect-name {
   display: block;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-family: var(--font-deco);
+  font-size: 1.1rem;
   font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin: 1rem 0;
+  letter-spacing: 0.15em;
+  color: var(--copper);
+  margin: 1.5rem 0;
   text-align: center;
-  padding: 0.5rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-style: italic;
 }
 
 /* Days accent - larger and decorative with silver shine */
