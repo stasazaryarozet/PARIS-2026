@@ -1,0 +1,101 @@
+name: Validate Build
+
+# Запускается на:
+# - Pull Requests в main или develop
+# - Push в main или develop
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validate:
+    name: Validate content.js generation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run build.py
+        run: |
+          echo "🔨 Running build.py..."
+          python3 build.py
+
+      - name: Run tests
+        run: |
+          echo "🧪 Running validation tests..."
+          python3 test_build.py
+
+      - name: Check for uncommitted changes
+        run: |
+          if git diff --exit-code content.js; then
+            echo "✅ content.js is in sync with WEBSITE_CONTENT.md"
+          else
+            echo "❌ content.js is out of sync!"
+            echo "Please run 'python3 build.py' and commit the changes"
+            exit 1
+          fi
+
+      - name: Validate commit messages
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "📝 Validating commit messages..."
+          # Получаем все коммиты в PR
+          COMMITS=$(gh pr view ${{ github.event.pull_request.number }} --json commits --jq '.commits[].messageHeadline')
+          
+          # Проверяем формат Conventional Commits
+          echo "$COMMITS" | while read -r commit; do
+            if [[ $commit =~ ^(feat|fix|docs|style|refactor|test|chore|build|ci|perf|revert)(\(.+\))?: ]]; then
+              echo "✅ Valid: $commit"
+            else
+              echo "❌ Invalid format: $commit"
+              echo "Expected: type(scope): subject"
+              exit 1
+            fi
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-info:
+    name: Build Information
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Получаем всю историю для тегов
+
+      - name: Get version info
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v2.0.0")
+          CODENAME=$(grep '^version:' WEBSITE_CONTENT.md | sed 's/version: "\(.*\)"/\1/')
+          
+          echo "## 📊 Build Information" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Last Tag:** $LAST_TAG" >> $GITHUB_STEP_SUMMARY
+          echo "- **Codename:** $CODENAME" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch:** ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🚀 Deploy to GitHub Pages will start automatically" >> $GITHUB_STEP_SUMMARY
+
