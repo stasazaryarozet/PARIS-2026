@@ -88,6 +88,11 @@ credentials/
 *.pem
 *.p12
 
+# === TELEGRAM ===
+tools/telegram_bot_daemon.plist
+tools/telegram_session*
+*.session
+
 # === DEBUGGING ===
 reasoning.log
 debug.log
