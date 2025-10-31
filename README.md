@@ -20,7 +20,11 @@
 
 **Для AI Agent**: При старте работы прочитайте `ARCHITECTURE_OVERVIEW.md` для понимания полной структуры и интеракций.
 
-**Важно**: Если нужна информация о Telegram Bot (какую информацию он получил, какие данные обработал), бот находится на уровне "Дел Вообще" в репозитории `stasazaryarozet/telegram-bot`. Подробности в `ARCHITECTURE_OVERVIEW.md`.
+**Важно**: Если нужна информация о Telegram Bot (какую информацию он получил, какие данные обработал), бот находится на уровне "Дел Вообще" в репозитории `stasazaryarozet/telegram-bot`. 
+
+**Документация**:
+- `ARCHITECTURE_OVERVIEW.md` — общая архитектура "Дел Вообще"
+- `ARCHITECTURE_TELEGRAM_BOT_INTEGRATION.md` — сквозная архитектура интеграции Telegram Bot с PARIS 2026, группа "N, O, S"
 
 Подробнее: `PROJECT_ARCHITECTURE.md`, `ARCHITECTURE_OVERVIEW.md`
 
