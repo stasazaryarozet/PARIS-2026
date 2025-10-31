@@ -145,7 +145,9 @@ PARIS 2026 (уровень 4 — конкретный проект)
 
 **Хранилище данных**:
 - Репозиторий: `data/` в `stasazaryarozet/telegram-bot`
+  - `data/chats/N_O_S/` — группа "N, O, S" (Наталья, Ольга, Стас)
 - Системное: `~/TelegramArchive/{chat_id}_{chat_name}/` (daemon сохраняет туда)
+  - `~/TelegramArchive/{chat_id}_N_O_S/` — группа "N, O, S"
 
 **Связи**:
 - **Уровень**: На уровне "Дел Вообще" (не в сфере Ольга)
@@ -391,30 +393,56 @@ cp ../../SHARED/contacts/ADDRESS_LIST.csv ./data/contacts.csv
 
 **Если вы работаете с проектом PARIS 2026 и нужна информация о данных Telegram Bot**:
 
-**Вариант 1: Подключение к репозиторию Telegram Bot**
+**Вариант 1: Автоматическая интеграция (рекомендуется)**
+```bash
+# Запустить скрипт синхронизации
+./tools/sync_telegram_data.sh
+# Данные будут доступны в source_materials/telegram_N_O_S/
+```
+
+**Вариант 2: Подключение к репозиторию Telegram Bot**
 ```
 Подключиться к репозиторию stasazaryarozet/telegram-bot через Cloud Cursor
+→ Просмотреть data/chats/N_O_S/ для данных группы "N, O, S" (Наталья, Ольга, Стас)
 → Просмотреть data/ для получения информации о собранных данных
 ```
 
-**Вариант 2: Проверка системного хранилища**
+**Вариант 3: Проверка системного хранилища**
 ```
 Проверить ~/TelegramArchive/{chat_id}_{chat_name}/
 → Бот сохраняет данные туда автоматически (daemon)
+→ Для группы "N, O, S": ~/TelegramArchive/{chat_id}_N_O_S/
 ```
 
-**Вариант 3: Символическая ссылка (если нужен постоянный доступ)**
+**Вариант 4: Символическая ссылка вручную**
 ```bash
 # В проекте PARIS 2026
-ln -s ~/TelegramArchive/{chat_id}_{chat_name} ./source_materials/telegram
+ln -s ~/Дела/Telegram\ Bot/data/chats/N_O_S ./source_materials/telegram_N_O_S
+# Или для системного хранилища:
+ln -s ~/TelegramArchive/{chat_id}_N_O_S ./source_materials/telegram_N_O_S
+```
+
+**Группа "N, O, S"**:
+- Наталья Логинова (куратор)
+- Ольга Розет (куратор)  
+- Стас Азарий Розет (организатор)
+- Данные: сообщения, голосовые, фото, документы о проекте PARIS 2026
+
+**Использование в коде:**
+```python
+# tools/get_telegram_data.py - утилита для доступа к данным
+from tools.get_telegram_data import TelegramDataAccess
+
+access = TelegramDataAccess()
+messages = access.get_messages()
+voice_files = access.get_voice_files()
 ```
 
 **Пример задачи для Agent**:
 ```
-"Какую информацию получил Telegram Bot?"
-→ Подключиться к репозиторию stasazaryarozet/telegram-bot
-→ Проверить data/ или README.md для информации о собранных данных
-→ Или проверить ~/TelegramArchive/ для актуальных данных
+"Что Наталья написала в группе N, O, S?"
+→ python3 tools/get_telegram_data.py search "текст" Natalya
+→ Или: access = TelegramDataAccess(); access.search_messages("текст", "Natalya")
 ```
 
 ---

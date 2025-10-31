@@ -20,7 +20,15 @@
 
 **Для AI Agent**: При старте работы прочитайте `ARCHITECTURE_OVERVIEW.md` для понимания полной структуры и интеракций.
 
-**Важно**: Если нужна информация о Telegram Bot (какую информацию он получил, какие данные обработал), бот находится на уровне "Дел Вообще" в репозитории `stasazaryarozet/telegram-bot`. Подробности в `ARCHITECTURE_OVERVIEW.md`.
+**Важно**: Если нужна информация о Telegram Bot (какую информацию он получил, какие данные обработал), бот находится на уровне "Дел Вообще" в репозитории `stasazaryarozet/telegram-bot`. 
+
+**Документация**:
+- `ARCHITECTURE_OVERVIEW.md` — общая архитектура "Дел Вообще"
+
+**Интеграция с Telegram Bot**:
+- `tools/sync_telegram_data.sh` — скрипт синхронизации данных группы "N, O, S"
+- `tools/get_telegram_data.py` — утилита доступа к данным группы
+- `source_materials/telegram_N_O_S/` — символическая ссылка на данные
 
 Подробнее: `PROJECT_ARCHITECTURE.md`, `ARCHITECTURE_OVERVIEW.md`
 

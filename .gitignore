@@ -118,3 +118,10 @@ TODO_PRIVATE.md
 
 # === Scripts ===
 pre-commit.sh
+
+# === Telegram Bot Data ===
+# Игнорируем содержимое telegram данных, но разрешаем символические ссылки и метаданные
+source_materials/telegram_N_O_S/*
+!source_materials/telegram_N_O_S/.gitkeep
+!source_materials/telegram_N_O_S/metadata.json
+!source_materials/telegram_N_O_S/README.md
