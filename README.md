@@ -24,7 +24,11 @@
 
 **Документация**:
 - `ARCHITECTURE_OVERVIEW.md` — общая архитектура "Дел Вообще"
-- `ARCHITECTURE_TELEGRAM_BOT_INTEGRATION.md` — сквозная архитектура интеграции Telegram Bot с PARIS 2026, группа "N, O, S"
+
+**Интеграция с Telegram Bot**:
+- `tools/sync_telegram_data.sh` — скрипт синхронизации данных группы "N, O, S"
+- `tools/get_telegram_data.py` — утилита доступа к данным группы
+- `source_materials/telegram_N_O_S/` — символическая ссылка на данные
 
 Подробнее: `PROJECT_ARCHITECTURE.md`, `ARCHITECTURE_OVERVIEW.md`
 
