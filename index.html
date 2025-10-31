@@ -131,10 +131,7 @@
       </div>
 
       <div class="booking-form">
-        <form id="bookingForm" action="https://formspree.io/f/xvgwnvkb" method="POST">
-          <input type="hidden" name="_subject" value="Париж январь 2026 — заявка">
-          <input type="hidden" name="_replyto" value="info@parisinjanuary.ru">
-          <input type="hidden" name="_next" value="https://parisinjanuary.ru/?success=1">
+        <form id="bookingForm" action="https://api.parisinjanuary.ru/api/submit" method="POST">
           
           <div class="form-group">
               <label for="name">Имя</label>
@@ -146,6 +143,9 @@
             <input type="text" id="contact" name="contact" placeholder="your@email.com + ..." required aria-describedby="contact-hint">
             <small id="contact-hint" style="display: block; margin-top: 0.5rem; opacity: 0.7; font-size: 0.85rem;">Укажите email или телефон для связи</small>
             </div>
+
+          <input type="text" name="_honey" id="_honey" value="" style="position:absolute;left:-5000px;opacity:0;" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_tstart" id="_tstart" value="">
 
           <div class="form-consent">
             <input type="checkbox" id="consent" name="consent" required>
@@ -197,6 +197,9 @@
       document.head.appendChild(script);
       
       script.onload = function() {
+        // set form start time for basic anti-bot timing
+        const tstart = document.getElementById('_tstart');
+        if (tstart) tstart.value = String(Date.now());
         // Apply versioned cache busting to CSS
         const version = (window.CONTENT && CONTENT.meta && CONTENT.meta.version) || Date.now();
         const styleLink = document.getElementById('style-link');
@@ -482,6 +485,7 @@
     // Form AJAX submission
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
+      const FORMSPREE_URL = 'https://formspree.io/f/xvgwnvkb';
       // Add real-time validation
       const contactInput = document.getElementById('contact');
       if (contactInput) {
@@ -518,28 +522,44 @@
         button.textContent = 'Отправка...';
         button.disabled = true;
         
+        let primaryOk = false;
         try {
-          const response = await fetch(this.action, {
+          const resPrimary = await fetch(this.action, {
             method: 'POST',
             body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
           });
-          
-          if (response.ok) {
+          primaryOk = resPrimary.ok;
+          if (primaryOk) {
             this.reset();
             showModal();
-          } else {
-            const data = await response.json().catch(() => null);
-            console.error('Form submission error. Status:', response.status);
-            console.error('Error data:', data);
+          }
+        } catch (errPrimary) {
+          console.warn('Primary endpoint failed, will try fallback:', errPrimary);
+        }
+
+        if (!primaryOk) {
+          try {
+            const resFallback = await fetch(FORMSPREE_URL, {
+              method: 'POST',
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+            if (resFallback.ok) {
+              this.reset();
+              showModal();
+            } else {
+              console.error('Fallback submission error. Status:', resFallback.status);
+              alert('Ошибка отправки. Попробуйте позже или напишите на info@parisinjanuary.ru');
+            }
+          } catch (errFallback) {
+            console.error('Fallback endpoint failed:', errFallback);
             alert('Ошибка отправки. Попробуйте позже или напишите на info@parisinjanuary.ru');
           }
-        } catch (error) {
-          console.error('Form submission failed with exception:', error);
-          console.error('Error details:', error.message, error.stack);
-          alert('Ошибка отправки. Попробуйте позже или напишите на info@parisinjanuary.ru');
+        }
+
+        try {
+          // no-op
         } finally {
           button.textContent = originalText;
           button.disabled = false;

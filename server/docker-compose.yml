@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  api:
+    build: .
+    container_name: paris2026-api
+    restart: unless-stopped
+    environment:
+      - FORM_EMAIL_TO=${FORM_EMAIL_TO}
+      - FORM_EMAIL_FROM=${FORM_EMAIL_FROM}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - SALT=${SALT}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app
+
+
+
+
+
+
+
+
