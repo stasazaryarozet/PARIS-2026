@@ -469,16 +469,40 @@ evolution_log:
 
 ```yaml
 file_structure:
-  source_files:
-    WEBSITE_CONTENT.md: "Основной контент на русском (source of truth)"
-    WEBSITE_CONTENT_AR.md: "Контент на арабском (source of truth)"
-    style.css: "Все стили проекта"
-    index.html: "HTML структура + inline JS"
-    build.py: "Генератор content.js из markdown"
-    test_build.py: "Тестовый набор для валидации"
+  campaign:  # Кампания продвижения
+    instagram:
+      published: "Опубликованные посты и Stories (2025-10-28)"
+      drafts: "Черновики текстов и изображений"
+      autogen: "Автоматически генерируемые варианты"
+      metrics: "IG Insights и аналитика"
+    
+    landing:  # parisinjanuary.ru
+      src:
+        WEBSITE_CONTENT.md: "Основной контент (source of truth)"
+        WEBSITE_CONTENT_AR.md: "Контент на арабском"
+        build.py: "Генератор content.js"
+        content.js: "Автогенерированный JS (НЕ РЕДАКТИРОВАТЬ)"
+        index.html: "HTML структура"
+        style.css: "Все стили"
+      public: "Статические ресурсы (favicon, og-image, CNAME)"
+      tests: "Тестовый набор для валидации"
+      hooks: "Git hooks (pre-commit)"
+      docs: "Документация лендинга"
+      server: "Локальный сервер для разработки"
+    
+    strategy:
+      CAMPAIGN_STRATEGY.md: "Основная стратегия"
+      prompts/gemini: "Промпты для Gemini"
+      prompts/mirror: "Промпты для Mirror"
+      history: "История разработки"
   
-  generated_files:
-    content.js: "Автогенерированный JS объект (НЕ РЕДАКТИРОВАТЬ)"
+  program:  # Программа тура
+    route:
+      ROUTE_SKELETON.md: "Скелет маршрута"
+      ALTERNATIVES_DAY3.md: "Альтернативы для Дня 3"
+      SEASONS_PROPOSAL.md: "Предложения по сезонам"
+      curators: "Информация о кураторах"
+      resources: "Ресурсы (PDF, карты)"
   
   source_materials:
     location: "source_materials/ (плоская структура)"
@@ -488,24 +512,33 @@ file_structure:
     documentation: "SOURCE_MATERIALS.md (автогенерируется при sync-bot)"
   
   transcripts:
+    location: "transcripts/"
     TRANSCRIPTS_ALL_VIDEOS.md: "Все транскрипты видео-отзывов (Yandex SpeechKit)"
     count: 10
     method: "Yandex SpeechKit API v3 (general:rc)"
     date: "2025-11-01"
   
-  documentation:
-    PROJECT_KNOWLEDGE_v2.3.md: "Этот файл - единый источник знаний"
-    AI_COMMUNICATION_LOG.md: "История взаимодействий и решений"
-    TO_GEMINI.md: "Инструкции для AI-ассистентов"
-    FORM_CHECK_PROCEDURE.md: "Критическая процедура проверки формы"
-    HANDSHAKE_V3_RESPONSE.md: "Протокол синхронизации Gemini↔Claude V3"
-    HANDSHAKE_V4_RESPONSE.md: "Протокол синхронизации Gemini↔Claude V4"
-    COMPARISON_WHISPER_VS_YANDEX.md: "Сравнение движков транскрипции"
-    TRANSCRIPTION_ARCHITECTURE.md: "Документация архитектуры транскрипции"
-    TRANSCRIPTION_STATUS.md: "Итоговый статус системы транскрипции"
+  transcripts_processed:
+    location: "transcripts_processed/"
+    format: "*_PROCESSED.md (обработанные Gemini 2.5 Pro)"
+    count: 9
+    status: "Финализированы (2025-11-01)"
   
-  git:
-    pre-commit: "Валидация перед коммитом"
+  tools:
+    location: "tools/ (универсальные скрипты для всех проектов)"
+    content: "Транскрипция, синхронизация, обработка"
+  
+  documentation:
+    PROJECT_KNOWLEDGE_v2.4.md: "Этот файл - единый источник знаний"
+    OPERATIONAL_MODEL_PROPOSAL_v7.md: "Операционная модель проекта"
+    README.md: "Основной README"
+    SOURCE_MATERIALS.md: "Каталог исходных материалов"
+    TRANSCRIPTS_ALL_VIDEOS.md: "Все транскрипты видео"
+  
+  _archive:
+    logs: "Логи транскрипции и обработки"
+    old_docs: "Устаревшая документация (PROJECT_KNOWLEDGE v1-v2.3)"
+    temp_status: "Временные статусы и чеклисты"
 ```
 
 ---

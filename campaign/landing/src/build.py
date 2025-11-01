@@ -377,13 +377,18 @@ def generate_content_js(data):
 def main():
     print("🔨 Генерация content.js из WEBSITE_CONTENT.md...")
     
-    data = parse_content('WEBSITE_CONTENT.md')
+    # Пути относительно campaign/landing/src/
+    content_path = Path(__file__).parent / 'content' / 'WEBSITE_CONTENT.md'
+    output_path = Path(__file__).parent / 'content.js'
+    
+    data = parse_content(content_path)
     js = generate_content_js(data)
     
-    Path('content.js').write_text(js, encoding='utf-8')
+    output_path.write_text(js, encoding='utf-8')
     
     print("✅ content.js обновлён из WEBSITE_CONTENT.md")
-    print("   • Источник правды: WEBSITE_CONTENT.md")
+    print(f"   • Источник правды: {content_path}")
+    print(f"   • Вывод: {output_path}")
     print("   • content.js — автогенерируется, не редактировать вручную")
     print("   • Чистый JS синтаксис (без кавычек у ключей)")
 
