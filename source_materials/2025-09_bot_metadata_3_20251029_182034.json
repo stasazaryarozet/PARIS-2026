@@ -1,0 +1,17 @@
+{
+  "message_id": 3,
+  "chat_id": -1003208406348,
+  "chat_name": "N, O, S",
+  "chat_type": "supergroup",
+  "date": "2025-10-29T15:20:33+00:00",
+  "content_type": "video",
+  "filename": "video_3_20251029_182034.mp4",
+  "from_user": {
+    "id": 6664077504,
+    "username": null,
+    "first_name": "Stas Azarya"
+  },
+  "text": "",
+  "forward_from": null,
+  "reply_to": null
+}

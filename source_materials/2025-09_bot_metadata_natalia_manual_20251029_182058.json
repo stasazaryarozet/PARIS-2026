@@ -1,0 +1,25 @@
+{
+  "message_id": "manual_import",
+  "chat_id": -1003208406348,
+  "chat_name": "N, O, S",
+  "chat_type": "supergroup",
+  "date": "2025-10-29T15:20:58+00:00",
+  "content_type": "video",
+  "filename": "natalia_manual_20251029_182058.mp4",
+  "file_size_mb": 54,
+  "duration": "18:16",
+  "from_user": {
+    "id": null,
+    "username": null,
+    "first_name": "Наталья Логинова"
+  },
+  "text": "",
+  "forward_from": null,
+  "reply_to": null,
+  "note": "Imported manually - video was sent before bot was added to group. Downloaded via Telegram Desktop."
+}
+
+
+
+
+
