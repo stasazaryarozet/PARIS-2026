@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Preconnect для Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Статические SEO мета-теги (для ботов/краулеров) -->
+  <title>Индивидуальный почерк ар-деко. 100 лет — 4 дня в Париже (январь 2026)</title>
+  <link rel="canonical" href="https://parisinjanuary.ru" />
+  
+  <meta name="description" content="4 дня в Париже. Фактуры, материалы, атмосфера. Ольга и Наталья. Галереи, отели, шоу-румы. Малые группы.">
+  <meta name="keywords" content="Paris Art Deco, ар-деко Париж, Palais de Tokyo, Nolinski, Galerie Vallois, Maison Louis Carré">
+  
+  <meta property="og:title" content="Индивидуальный почерк ар-деко. 100 лет">
+  <meta property="og:description" content="4 дня. Фактуры, материалы, атмосфера. То, что не видно в публикациях.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://parisinjanuary.ru">
+  <meta property="og:image" content="https://parisinjanuary.ru/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Индивидуальный почерк ар-деко">
+  <meta property="og:locale" content="ru_RU">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Индивидуальный почерк ар-деко. 100 лет">
+  <meta name="twitter:description" content="4 дня. Фактуры, материалы, атмосфера. То, что не видно в публикациях.">
+  <meta name="twitter:image" content="https://parisinjanuary.ru/og-image.jpg">
+  
+  <!-- JSON-LD для Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": "Индивидуальный почерк ар-деко. 100 лет — 4 дня в Париже",
+    "startDate": "2026-01-15",
+    "endDate": "2026-01-19",
+    "image": "https://parisinjanuary.ru/og-image.jpg",
+    "inLanguage": "ru-RU",
+    "url": "https://parisinjanuary.ru",
+    "provider": { "@type": "Organization", "name": "Ольга Розет" },
+    "offers": { "@type": "Offer", "price": "1550", "priceCurrency": "EUR", "availability": "https://schema.org/InStock" }
+  }
+  </script>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  
+  <link id="style-link" rel="stylesheet" href="style.css" />
+  <!-- CSS версионируется после загрузки content.js -->
+</head>
+<body id="top">
+  <!-- Version Badge -->
+  <div class="version-badge" id="version-badge">v—</div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 id="hero-title"></h1>
+      <p class="hero-subtitle" id="hero-subtitle"></p>
+      
+      <div class="hero-meta" id="hero-meta"></div>
+
+      <div class="hero-cta">
+        <a href="#booking" class="btn btn-primary">Забронировать место</a>
+        <a href="#program" class="btn btn-secondary">Программа по дням</a>
+          </div>
+        </div>
+  </section>
+
+  <section class="philosophy">
+    <div class="container-narrow">
+      <div class="section-title">
+            <h2>Программа</h2>
+          </div>
+      
+      <div class="philosophy-content" id="program-intro"></div>
+        </div>
+  </section>
+
+  <section class="approach">
+    <div class="container-narrow">
+      <div class="section-title">
+            <h2 id="approach-title"></h2>
+          </div>
+      
+      <div class="approach-content">
+        <p class="approach-thesis" id="approach-thesis"></p>
+        <div class="approach-items" id="approach-items"></div>
+          </div>
+        </div>
+  </section>
+
+  <section id="program" class="program">
+    <div class="container">
+      <div class="section-title">
+        <h2>По дням</h2>
+          </div>
+
+      <div class="days-container" id="days-container"></div>
+      </div>
+    </section>
+
+  <section class="curators">
+    <div class="container">
+      <div class="section-title">
+        <h2>Кураторы</h2>
+      </div>
+
+      <div class="curators-grid" id="curators-grid"></div>
+      
+      <div class="curator-separator">•</div>
+      </div>
+    </section>
+
+  <section class="inclusions">
+    <div class="container">
+      <div class="section-title">
+        <h2>Что в(ы)ключено</h2>
+        </div>
+
+      <div class="inclusions-grid" id="inclusions-grid"></div>
+      </div>
+    </section>
+
+  <section id="booking" class="booking">
+      <div class="container">
+      <div class="section-title">
+        <h2>Бронь</h2>
+      </div>
+
+      <div class="booking-form">
+        <form id="bookingForm" action="https://api.parisinjanuary.ru/api/submit" method="POST">
+          
+          <div class="form-group">
+              <label for="name">Имя</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+
+          <div class="form-group">
+            <label for="contact">Эл. почта или телефон</label>
+            <input type="text" id="contact" name="contact" placeholder="your@email.com + ..." required aria-describedby="contact-hint">
+            <small id="contact-hint" style="display: block; margin-top: 0.5rem; opacity: 0.7; font-size: 0.85rem;">Укажите email или телефон для связи</small>
+            </div>
+
+          <input type="text" name="_honey" id="_honey" value="" style="position:absolute;left:-5000px;opacity:0;" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_tstart" id="_tstart" value="">
+
+          <div class="form-consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">Согласиться с обработкой персональных данных и&nbsp;получением информации от&nbsp;кураторов</label>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Забронировать место</button>
+          </div>
+        </form>
+      </div>
+      </div>
+    </section>
+
+  <footer class="main-footer">
+    <div class="footer-top">
+      <a href="mailto:o.g.rozet@gmail.com" class="footer-email">o.g.rozet@gmail.com</a>
+      <a href="#top" class="back-to-top" aria-label="Наверх">↑</a>
+    </div>
+    <div class="mirror-container">
+      <img src="mirror.png" alt="Art Deco Mirror Reflection" class="mirror-image">
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <div class="floating-cta" id="floatingCta">
+    <a href="#booking" class="floating-cta-btn" aria-label="Забронировать">
+      <span class="floating-cta-line1">ЗАБРОНИРОВАТЬ</span>
+      <span class="floating-cta-line3">ВИЗЫ ТРЕБУЮТ ЗНАЧИТЕЛЬНОГО ВРЕМЕНИ</span>
+    </a>
+  </div>
+
+  <!-- Thank You Modal -->
+  <div class="modal" id="thankYouModal">
+    <div class="modal-content">
+      <div class="modal-icon">✓</div>
+      <h3 class="modal-title">Спасибо!</h3>
+      <p class="modal-text">Заявка принята.<br>С Вами свяжутся.</p>
+      <button class="modal-close" onclick="closeModal()">Закрыть</button>
+    </div>
+  </div>
+
+  <script>
+    // Versioned cache busting: load content.js first, then apply version to CSS
+    (function() {
+      const script = document.createElement('script');
+      // Initial load with Date.now() to ensure fresh content
+      script.src = 'content.js?v=' + Date.now();
+      document.head.appendChild(script);
+      
+      script.onload = function() {
+        // set form start time for basic anti-bot timing
+        const tstart = document.getElementById('_tstart');
+        if (tstart) tstart.value = String(Date.now());
+        // Apply versioned cache busting to CSS
+        const version = (window.CONTENT && CONTENT.meta && CONTENT.meta.version) || Date.now();
+        const styleLink = document.getElementById('style-link');
+        if (styleLink) {
+          styleLink.href = 'style.css?v=' + version;
+        }
+        
+        // Update dynamic SEO meta from CONTENT
+        applyMetaFromContent();
+        
+        // Initialize app
+        init();
+      };
+    })();
+    
+    // Synchronize SEO/OG/Twitter meta tags from CONTENT.meta
+    function applyMetaFromContent() {
+      const M = (window.CONTENT && CONTENT.meta) || {};
+      
+      // Update document title
+      if (M.title) {
+        document.title = M.title + ' — ' + (M.ogTitle || 'Париж январь 2026');
+      }
+      
+      // Helper to set meta content
+      const setMeta = (selector, value) => {
+        if (!value) return;
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute('content', value);
+      };
+      
+      // Basic meta
+      setMeta('meta[name="description"]', M.description);
+      setMeta('meta[name="keywords"]', M.keywords);
+      
+      // Open Graph
+      setMeta('meta[property="og:title"]', M.ogTitle || M.title);
+      setMeta('meta[property="og:description"]', M.ogDescription || M.description);
+      setMeta('meta[property="og:image"]', M.ogImage);
+      setMeta('meta[property="og:url"]', M.url);
+      
+      // Twitter
+      setMeta('meta[name="twitter:title"]', M.ogTitle || M.title);
+      setMeta('meta[name="twitter:description"]', M.ogDescription || M.description);
+      setMeta('meta[name="twitter:image"]', M.ogImage);
+      
+      // Canonical URL
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical && M.url) {
+        canonical.setAttribute('href', M.url);
+      }
+    }
+    
+    // Render content
+    function render() {
+      // Version badge
+      document.getElementById('version-badge').textContent = 'v' + CONTENT.meta.version;
+      
+      // Hero
+      document.getElementById('hero-title').innerHTML = CONTENT.hero.title;
+      document.getElementById('hero-subtitle').innerHTML = CONTENT.hero.subtitle;
+      document.getElementById('hero-meta').innerHTML = `
+        <div class="hero-meta-item">${CONTENT.hero.dates}</div>
+        <div class="hero-meta-item">${CONTENT.hero.group}</div>
+        <div class="hero-meta-item">${CONTENT.hero.price}</div>
+      `;
+
+      // Program intro
+      const programIntro = document.getElementById('program-intro');
+      CONTENT.program.intro.forEach(item => {
+        if (typeof item === 'string') {
+          const p = document.createElement('p');
+          p.innerHTML = item;
+          programIntro.appendChild(p);
+        } else if (item.type === 'highlight') {
+          const div = document.createElement('div');
+          div.className = 'philosophy-highlight';
+          div.innerHTML = item.text;
+          programIntro.appendChild(div);
+        }
+      });
+
+      // Approach
+      if (CONTENT.program.approach && CONTENT.program.approach.title) {
+        document.getElementById('approach-title').innerHTML = CONTENT.program.approach.title;
+        document.getElementById('approach-thesis').innerHTML = CONTENT.program.approach.thesis || '';
+        
+        const approachItems = document.getElementById('approach-items');
+        CONTENT.program.approach.items.forEach(item => {
+          const p = document.createElement('p');
+          p.innerHTML = item;
+          approachItems.appendChild(p);
+        });
+      }
+
+      // Days
+      const daysContainer = document.getElementById('days-container');
+      CONTENT.days.forEach((day, index) => {
+        const dayEl = document.createElement('div');
+        dayEl.className = 'day';
+        
+        const contentId = `day-content-${index}`;
+        
+        const locationsHTML = day.locations.map(loc => `
+          <li class="location-item">
+            <div class="location-name">${loc.name}</div>
+            <div class="location-description">${loc.description}</div>
+          </li>
+        `).join('');
+
+        const eveningHTML = day.evening ? `
+          <div class="day-evening">
+            <strong>${day.evening}</strong>
+          </div>
+        ` : '';
+
+        dayEl.innerHTML = `
+          <div class="day-header" role="button" tabindex="0" aria-expanded="false" aria-controls="${contentId}" aria-label="${day.number}: ${day.title}, ${day.date}">
+            <div class="day-header-left">
+              <div class="day-number">${day.number}</div>
+              <div class="day-title">${day.title}</div>
+              <div class="day-date">${day.date}</div>
+            </div>
+            <div class="day-toggle" aria-hidden="true">▼</div>
+          </div>
+          <div class="day-content" id="${contentId}">
+            <div class="day-theme">${day.theme}</div>
+            <ul class="locations-list">
+              ${locationsHTML}
+            </ul>
+            ${eveningHTML}
+          </div>
+        `;
+        
+        daysContainer.appendChild(dayEl);
+      });
+
+      // Curators
+      const curatorsGrid = document.getElementById('curators-grid');
+      CONTENT.curators.forEach(curator => {
+        const curatorEl = document.createElement('div');
+        curatorEl.className = 'curator-card';
+        
+        const bioHTML = curator.bio.map(item => `<li>${item}</li>`).join('');
+        const inProgramHTML = curator.inProgram ? `<div class="curator-in-program">${curator.inProgram}</div>` : '';
+        
+        curatorEl.innerHTML = `
+          <h3 class="curator-name">${curator.name}</h3>
+          <div class="curator-role">${curator.role}</div>
+          <ul class="curator-bio">
+            ${bioHTML}
+          </ul>
+          ${inProgramHTML}
+        `;
+        
+        curatorsGrid.appendChild(curatorEl);
+      });
+
+      // Inclusions
+      const inclusionsGrid = document.getElementById('inclusions-grid');
+      CONTENT.inclusions.forEach(inc => {
+        const incEl = document.createElement('div');
+        incEl.className = 'inclusion-card';
+        
+        const priceHTML = inc.price ? `<div class="price-highlight">${inc.price}</div>` : '';
+        
+        incEl.innerHTML = `
+          <div class="inclusion-icon">${inc.icon}</div>
+          <div class="inclusion-title">${inc.title}</div>
+          ${priceHTML}
+          <div class="inclusion-description">${inc.description}</div>
+        `;
+        
+        inclusionsGrid.appendChild(incEl);
+      });
+
+      // Form texts from CONTENT.form
+      if (CONTENT.form) {
+        const F = CONTENT.form;
+        // Helper: decode HTML entities for plain-text fields (e.g., placeholders)
+        const decodeHtml = (str) => {
+          const t = document.createElement('textarea');
+          t.innerHTML = str;
+          return t.value;
+        };
+        const nameLabel = document.querySelector('label[for="name"]');
+        const contactLabel = document.querySelector('label[for="contact"]');
+        const contactInput = document.getElementById('contact');
+        const contactHint = document.getElementById('contact-hint');
+        const consentLabel = document.querySelector('.form-consent label');
+        const submitBtn = document.querySelector('.form-submit .btn-primary');
+        const modalTitle = document.querySelector('#thankYouModal .modal-title');
+        const modalText = document.querySelector('#thankYouModal .modal-text');
+        const modalClose = document.querySelector('#thankYouModal .modal-close');
+
+        if (nameLabel && F.name_label) nameLabel.innerHTML = F.name_label;
+        if (contactLabel && F.contact_label) contactLabel.innerHTML = F.contact_label;
+        if (contactInput && F.contact_placeholder) contactInput.placeholder = decodeHtml(F.contact_placeholder);
+        if (contactHint && F.contact_hint) contactHint.textContent = F.contact_hint;
+        if (consentLabel && F.consent_label) consentLabel.innerHTML = F.consent_label;
+        if (submitBtn && F.submit_button) submitBtn.textContent = F.submit_button;
+        if (modalTitle && F.modal_title) modalTitle.textContent = F.modal_title;
+        if (modalText && F.modal_text) modalText.innerHTML = F.modal_text;
+        if (modalClose && F.modal_close) modalClose.textContent = F.modal_close;
+      }
+
+      // Add event listeners for day accordions
+      document.querySelectorAll('.day-header').forEach(header => {
+        header.addEventListener('click', () => toggleDay(header));
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleDay(header);
+          }
+        });
+      });
+    }
+
+    function toggleDay(header) {
+      const day = header.parentElement;
+      const isActive = day.classList.contains('active');
+      
+      // Close all days
+      document.querySelectorAll('.day').forEach(d => {
+        d.classList.remove('active');
+        const dayHeader = d.querySelector('.day-header');
+        if (dayHeader) dayHeader.setAttribute('aria-expanded', 'false');
+      });
+      
+      // Open clicked day if it wasn't active
+      if (!isActive) {
+        day.classList.add('active');
+        header.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Smooth scroll реализован через CSS (html { scroll-behavior: smooth; })
+    // Дополнительный JS-код удалён для избежания дублирования
+
+    // Floating CTA logic
+    function updateFloatingCTA() {
+      const floatingCta = document.getElementById('floatingCta');
+      const hero = document.querySelector('.hero');
+      const booking = document.getElementById('booking');
+      
+      if (!floatingCta || !hero || !booking) return;
+      
+      const scrollY = window.scrollY;
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      const bookingTop = booking.offsetTop;
+      const bookingVisible = scrollY + window.innerHeight > bookingTop + 100;
+      
+      // Show CTA when: past hero AND before booking is visible
+      if (scrollY > heroBottom && !bookingVisible) {
+        floatingCta.classList.add('visible');
+      } else {
+        floatingCta.classList.remove('visible');
+      }
+    }
+
+    // Throttle scroll events
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateFloatingCTA();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Form validation
+    function validateContact(contact) {
+      // Email regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // Phone regex (accepts +, digits, spaces, dashes, parentheses)
+      const phoneRegex = /^[\d\s\-\+\(\)]{7,}$/;
+      
+      return emailRegex.test(contact) || phoneRegex.test(contact);
+    }
+
+    // Form AJAX submission
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+      const FORMSPREE_URL = 'https://formspree.io/f/xvgwnvkb';
+      // Add real-time validation
+      const contactInput = document.getElementById('contact');
+      if (contactInput) {
+        contactInput.addEventListener('input', function() {
+          const value = this.value.trim();
+          if (value.length > 0 && !validateContact(value)) {
+            this.setCustomValidity('Укажите корректный email или телефон');
+          } else {
+            this.setCustomValidity('');
+          }
+        });
+      }
+      
+      bookingForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validate contact field
+        const contactValue = contactInput ? contactInput.value.trim() : '';
+        if (contactValue && !validateContact(contactValue)) {
+          alert('Пожалуйста, укажите корректный email или телефон');
+          return;
+        }
+        
+        const formData = new FormData(this);
+        const button = this.querySelector('button[type="submit"]');
+        
+        if (!button) {
+          console.error('Submit button not found');
+          return;
+        }
+        
+        const originalText = button.textContent;
+        
+        button.textContent = 'Отправка...';
+        button.disabled = true;
+        
+        let primaryOk = false;
+        try {
+          const resPrimary = await fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          primaryOk = resPrimary.ok;
+          if (primaryOk) {
+            this.reset();
+            showModal();
+          }
+        } catch (errPrimary) {
+          console.warn('Primary endpoint failed, will try fallback:', errPrimary);
+        }
+
+        if (!primaryOk) {
+          try {
+            const resFallback = await fetch(FORMSPREE_URL, {
+              method: 'POST',
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+            if (resFallback.ok) {
+              this.reset();
+              showModal();
+            } else {
+              console.error('Fallback submission error. Status:', resFallback.status);
+              alert('Ошибка отправки. Попробуйте позже или напишите на info@parisinjanuary.ru');
+            }
+          } catch (errFallback) {
+            console.error('Fallback endpoint failed:', errFallback);
+            alert('Ошибка отправки. Попробуйте позже или напишите на info@parisinjanuary.ru');
+          }
+        }
+
+        try {
+          // no-op
+        } finally {
+          button.textContent = originalText;
+          button.disabled = false;
+        }
+      });
+    } else {
+      console.error('Booking form not found');
+    }
+
+    // Modal functions
+    function showModal() {
+      const modal = document.getElementById('thankYouModal');
+      if (modal) {
+        modal.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('thankYouModal');
+      if (modal) {
+        modal.classList.remove('visible');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close modal on Esc
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Close modal on backdrop click
+    const modal = document.getElementById('thankYouModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal();
+        }
+      });
+    }
+
+    // Initialize
+    function init() {
+      render();
+      updateFloatingCTA();
+    }
+  </script>
+
+</body>
+</html>
