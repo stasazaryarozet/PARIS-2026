@@ -548,7 +548,7 @@
             const googleFormData = new FormData();
             googleFormData.append(ENTRY_NAME, formData.get('name'));
             googleFormData.append(ENTRY_CONTACT, formData.get('contact'));
-            googleFormData.append(ENTRY_CONSENT, 'Да');
+            googleFormData.append(ENTRY_CONSENT, 'Option 1');
             
             await fetch(GOOGLE_FORM_URL, {
               method: 'POST',
