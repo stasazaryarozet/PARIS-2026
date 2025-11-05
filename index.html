@@ -485,7 +485,11 @@
     // Form AJAX submission
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
-      const FORMSPREE_URL = 'https://formspree.io/f/xvgwnvkb';
+      // Google Forms endpoint (replaces Formspree)
+      const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScdmEL7qC9RFX-fZ3a1eMdT71sW3-KfamMACtb02tQ3gTqGqg/formResponse';
+      const ENTRY_NAME = 'entry.1639224450';
+      const ENTRY_CONTACT = 'entry.110561419';
+      const ENTRY_CONSENT = 'entry.1408369959';
       // Add real-time validation
       const contactInput = document.getElementById('contact');
       if (contactInput) {
@@ -539,22 +543,25 @@
         }
 
         if (!primaryOk) {
+          // Fallback to Google Forms (no spam, direct to Google Sheets)
           try {
-            const resFallback = await fetch(FORMSPREE_URL, {
+            const googleFormData = new FormData();
+            googleFormData.append(ENTRY_NAME, formData.get('name'));
+            googleFormData.append(ENTRY_CONTACT, formData.get('contact'));
+            googleFormData.append(ENTRY_CONSENT, 'Да');
+            
+            await fetch(GOOGLE_FORM_URL, {
               method: 'POST',
-              body: formData,
-              headers: { 'Accept': 'application/json' }
+              body: googleFormData,
+              mode: 'no-cors'  // Required for Google Forms
             });
-            if (resFallback.ok) {
-              this.reset();
-              showModal();
-            } else {
-              console.error('Fallback submission error. Status:', resFallback.status);
-              alert('Ошибка отправки. Попробуйте позже или напишите на info@parisinjanuary.ru');
-            }
+            
+            // no-cors always succeeds, assume success
+            this.reset();
+            showModal();
           } catch (errFallback) {
-            console.error('Fallback endpoint failed:', errFallback);
-            alert('Ошибка отправки. Попробуйте позже или напишите на info@parisinjanuary.ru');
+            console.error('Google Forms submission failed:', errFallback);
+            alert('Ошибка отправки. Попробуйте позже или напишите на azrozet@gmail.com');
           }
         }
 
