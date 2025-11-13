@@ -309,16 +309,23 @@ hotels_parts = [p.strip() for p in hotels_parts if p.strip()]
 hotels_html_parts = {}
 
 for part in hotels_parts:
-    if part.startswith('17 проверенных отелей'):
-        hotels_html_parts['intro'] = part
-    elif part.startswith('Совет'):
-        hotels_html_parts['tip'] = part.replace('Совет\\n\\n', '')
-    elif part.startswith('Почему именно эти районы'):
-        hotels_html_parts['why'] = part
-    elif part.startswith('Как выбрать свой отель'):
-        hotels_html_parts['how'] = part
-    elif part.startswith('Нужна помощь с выбором?'):
-        hotels_html_parts['help'] = part
+    # Убираем заголовок из контента, оставляем только тело
+    lines = part.split('\n', 1)
+    if len(lines) > 1:
+        title, body = lines[0], lines[1]
+    else:
+        title, body = lines[0], ''
+    
+    if title.startswith('Совет'):
+        hotels_html_parts['tip'] = body.strip()
+    elif title.startswith('17 отелей на карте'):
+        hotels_html_parts['map'] = body.strip()
+    elif title.startswith('География'):
+        hotels_html_parts['geography'] = body.strip()
+    elif title.startswith('Что важно'):
+        hotels_html_parts['important'] = body.strip()
+    elif title.startswith('Помощь'):
+        hotels_html_parts['help'] = body.strip()
 
 hotels_page_html = f'''<!DOCTYPE html>
 <html lang="ru">
@@ -395,17 +402,7 @@ h2 {{
   padding: 1.5rem 1.8rem;
   margin: 2.5rem 0;
   line-height: 1.7;
-}}
-
-.tip strong {{
-  font-weight: 600;
-  color: var(--midnight-blue);
-}}
-
-.note {{
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin: 1rem 0;
+  color: var(--text-primary);
 }}
 
 a {{
@@ -439,19 +436,19 @@ em {{
   <p class="subtitle">Поддержка участников</p>
 
   <div class="tip">
-    <strong>Совет:</strong> {hotels_html_parts.get('tip', '')}
+    {markdown.markdown(hotels_html_parts.get('tip', ''))}
   </div>
 
-  <h2>17 проверенных отелей</h2>
-  {markdown.markdown(hotels_html_parts.get('intro', ''))}
+  <h2>17 отелей на карте</h2>
+  {markdown.markdown(hotels_html_parts.get('map', ''))}
 
-  <h2>Почему именно эти районы</h2>
-  {markdown.markdown(hotels_html_parts.get('why', ''))}
+  <h2>География</h2>
+  {markdown.markdown(hotels_html_parts.get('geography', ''))}
 
-  <h2>Как выбрать свой отель</h2>
-  {markdown.markdown(hotels_html_parts.get('how', ''))}
+  <h2>Что важно</h2>
+  {markdown.markdown(hotels_html_parts.get('important', ''))}
 
-  <h2>Нужна помощь с выбором?</h2>
+  <h2>Помощь</h2>
   {markdown.markdown(hotels_html_parts.get('help', ''))}
 
 </div>
