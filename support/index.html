@@ -126,13 +126,19 @@ em {
 </div>
 
 <script>
-// Автоматическое версионирование для обхода кеша
+// Обход кеша: добавляем timestamp в URL, затем убираем
 (function() {
   const url = new URL(window.location.href);
-  const hasVersion = url.searchParams.has('v');
-  if (!hasVersion) {
-    url.searchParams.set('v', Date.now());
-    window.history.replaceState({}, '', url);
+  const hasTimestamp = url.searchParams.has('_t');
+  
+  if (!hasTimestamp) {
+    // Первая загрузка: добавляем timestamp
+    url.searchParams.set('_t', Date.now());
+    window.location.replace(url.href);
+  } else {
+    // Вторая загрузка: убираем timestamp из адресной строки
+    url.searchParams.delete('_t');
+    window.history.replaceState({}, '', url.pathname + url.search);
   }
 })();
 </script>

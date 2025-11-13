@@ -8,6 +8,25 @@ import re
 import markdown
 from pathlib import Path
 
+# Скрипт для обхода кеша (единый для всех страниц)
+CACHE_BUST_SCRIPT = """<script>
+// Обход кеша: добавляем timestamp в URL, затем убираем
+(function() {
+  const url = new URL(window.location.href);
+  const hasTimestamp = url.searchParams.has('_t');
+  
+  if (!hasTimestamp) {
+    // Первая загрузка: добавляем timestamp
+    url.searchParams.set('_t', Date.now());
+    window.location.replace(url.href);
+  } else {
+    // Вторая загрузка: убираем timestamp из адресной строки
+    url.searchParams.delete('_t');
+    window.history.replaceState({}, '', url.pathname + url.search);
+  }
+})();
+</script>"""
+
 # Читаем content.md
 content_path = Path(__file__).parent / 'content.md'
 with open(content_path, 'r', encoding='utf-8') as f:
@@ -114,17 +133,7 @@ index_html = f'''<!DOCTYPE html>
   <p>v{version}</p>
 </footer>
 
-<script>
-// Автоматическое версионирование для обхода кеша
-(function() {{
-  const url = new URL(window.location.href);
-  const hasVersion = url.searchParams.has('v');
-  if (!hasVersion) {{
-    url.searchParams.set('v', Date.now());
-    window.history.replaceState({{}}, '', url);
-  }}
-}})();
-</script>
+{CACHE_BUST_SCRIPT}
 
 </body>
 </html>'''
@@ -273,17 +282,7 @@ em {{
   </div>
 </div>
 
-<script>
-// Автоматическое версионирование для обхода кеша
-(function() {{
-  const url = new URL(window.location.href);
-  const hasVersion = url.searchParams.has('v');
-  if (!hasVersion) {{
-    url.searchParams.set('v', Date.now());
-    window.history.replaceState({{}}, '', url);
-  }}
-}})();
-</script>
+{CACHE_BUST_SCRIPT}
 
 </body>
 </html>'''
@@ -457,17 +456,7 @@ em {{
 
 </div>
 
-<script>
-// Автоматическое версионирование для обхода кеша
-(function() {{
-  const url = new URL(window.location.href);
-  const hasVersion = url.searchParams.has('v');
-  if (!hasVersion) {{
-    url.searchParams.set('v', Date.now());
-    window.history.replaceState({{}}, '', url);
-  }}
-}})();
-</script>
+{CACHE_BUST_SCRIPT}
 
 </body>
 </html>'''
