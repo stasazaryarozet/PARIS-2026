@@ -24,15 +24,11 @@ def test_build():
     print("🧪 ТЕСТИРОВАНИЕ BUILD.PY\n")
     errors = []
     
-    # Пути относительно tests/
-    build_py = Path(__file__).parent.parent / 'src' / 'build.py'
-    content_js = Path(__file__).parent.parent / 'src' / 'content.js'
-    
     # 1. Генерация
     print("1. Запуск build.py...")
     try:
         result = subprocess.run(
-            ['python3', str(build_py)], 
+            ['python3', 'build.py'], 
             capture_output=True, 
             text=True, 
             timeout=TIMEOUT_SECONDS
@@ -49,7 +45,7 @@ def test_build():
     print("2. Проверка синтаксиса JavaScript...")
     try:
         result = subprocess.run(
-            ['node', '--check', str(content_js)], 
+            ['node', '--check', 'content.js'], 
             capture_output=True, 
             text=True, 
             timeout=TIMEOUT_SECONDS
@@ -76,10 +72,10 @@ def test_build():
     
     # 3. Чтение content.js
     print("3. Парсинг content.js...")
-    content_js_text = content_js.read_text(encoding='utf-8')
+    content_js = Path('content.js').read_text(encoding='utf-8')
     
     # Проверка на JSON вместо JS
-    if '"hero":' in content_js_text or '"meta":' in content_js_text:
+    if '"hero":' in content_js or '"meta":' in content_js:
         errors.append("❌ КРИТИЧНО: Ключи в кавычках (JSON вместо JS)")
     else:
         print("   ✅ Чистый JS синтаксис (без кавычек у ключей)")
@@ -89,7 +85,7 @@ def test_build():
     
     required_keys = ['hero', 'meta', 'program', 'days', 'curators', 'inclusions']
     for key in required_keys:
-        if f'{key}:' not in content_js_text:
+        if f'{key}:' not in content_js:
             errors.append(f"❌ Отсутствует секция: {key}")
         else:
             print(f"   ✅ {key} секция присутствует")
@@ -98,35 +94,35 @@ def test_build():
     print("5. Проверка hero секции...")
     hero_fields = ['title:', 'subtitle:', 'dates:', 'group:', 'price:']
     for field in hero_fields:
-        if field not in content_js_text[:500]:  # Hero в начале
+        if field not in content_js[:500]:  # Hero в начале
             errors.append(f"❌ Hero: отсутствует {field}")
         else:
             print(f"   ✅ Hero.{field.strip(':')} есть")
     
     # 6. Дни
     print("6. Проверка дней программы...")
-    days_count = content_js_text.count('number: "ДЕНЬ')
+    days_count = content_js.count('number: "ДЕНЬ')
     if days_count < 4:
         errors.append(f"❌ Найдено только {days_count} дней (ожидается 4)")
     else:
         print(f"   ✅ {days_count} дней найдено")
     
     for day in ['ДЕНЬ I', 'ДЕНЬ II', 'ДЕНЬ III', 'ДЕНЬ IV']:
-        if day not in content_js_text:
+        if day not in content_js:
             errors.append(f"❌ Отсутствует: {day}")
     
     # 7. Кураторы (КРИТИЧНО!)
     print("7. Проверка кураторов...")
     curators = ['Розет', 'Логинова']
     for curator in curators:
-        if curator not in content_js_text:
+        if curator not in content_js:
             errors.append(f"❌ КРИТИЧНО: Куратор {curator} отсутствует!")
         else:
             print(f"   ✅ {curator} присутствует")
     
     # 8. Inclusions
     print("8. Проверка inclusions...")
-    inclusions_count = content_js_text.count('icon:')
+    inclusions_count = content_js.count('icon:')
     if inclusions_count < 3:
         errors.append(f"❌ Найдено только {inclusions_count} inclusions (ожидается 3+)")
     else:
@@ -143,14 +139,14 @@ def test_build():
         'Eileen Gray'
     ]
     for item in critical_content:
-        if item not in content_js_text:
+        if item not in content_js:
             errors.append(f"⚠️  Отсутствует важный элемент: {item}")
     
     print(f"   ✅ Критические элементы проверены")
     
     # 10. Размер файла
     print("10. Проверка размера content.js...")
-    file_size = len(content_js_text)
+    file_size = len(content_js)
     if file_size < 4000:
         errors.append(f"❌ content.js слишком маленький ({file_size} байт, ожидается >4000)")
     else:

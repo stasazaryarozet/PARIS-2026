@@ -1,0 +1,26 @@
+{
+  "export_date": "2025-11-13T10:39:36.735337+00:00",
+  "chat": {
+    "id": 4751416645,
+    "title": "ПАРИЖ 25",
+    "type": "group",
+    "username": null,
+    "member_count": 10
+  },
+  "statistics": {
+    "total_messages": 101,
+    "total_members": 10,
+    "messages_with_media": 47,
+    "messages_with_text": 55,
+    "date_range": {
+      "oldest": "2025-01-29T14:06:12+00:00",
+      "newest": "2025-11-04T11:51:01+00:00"
+    }
+  },
+  "files": {
+    "substance": "/Users/azaryarozet/Library/Mobile Documents/com~apple~CloudDocs/Дела/.substance/telegram_paris2025_20251113_133936.json",
+    "messages": "/Users/azaryarozet/Library/Mobile Documents/com~apple~CloudDocs/Дела/Ольга/Дизайн-путешествия/PARIS-2026/telegram_group/messages_20251113_133936.json",
+    "members": "/Users/azaryarozet/Library/Mobile Documents/com~apple~CloudDocs/Дела/Ольга/Дизайн-путешествия/PARIS-2026/telegram_group/members_20251113_133936.json",
+    "text_dump": "/Users/azaryarozet/Library/Mobile Documents/com~apple~CloudDocs/Дела/Ольга/Дизайн-путешествия/PARIS-2026/telegram_group/dump_20251113_133936.txt"
+  }
+}
