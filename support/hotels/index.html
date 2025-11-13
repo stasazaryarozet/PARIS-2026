@@ -204,5 +204,17 @@ footer p {
 
 </div>
 
+<script>
+// Автоматическое версионирование для обхода кеша
+(function() {
+  const url = new URL(window.location.href);
+  const hasVersion = url.searchParams.has('v');
+  if (!hasVersion) {
+    url.searchParams.set('v', Date.now());
+    window.history.replaceState({}, '', url);
+  }
+})();
+</script>
+
 </body>
 </html>
