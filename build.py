@@ -151,9 +151,15 @@ for section in support_sections:
     if section.startswith('Отели'):
         support_nav += '  <li><a href="./hotels/">Отели</a></li>\n'
     elif section.startswith('Транспорт'):
-        support_nav += '  <li><a href="./transport/">Транспорт</a> <em>(скоро)</em></li>\n'
+        # Пропускаем пустые секции
+        content = section.split('\n', 1)[1].strip() if '\n' in section else ''
+        if content:
+            support_nav += '  <li><a href="./transport/">Транспорт</a></li>\n'
     elif section.startswith('Практическая информация'):
-        support_nav += '  <li><a href="./info/">Практическая информация</a> <em>(скоро)</em></li>\n'
+        # Пропускаем пустые секции
+        content = section.split('\n', 1)[1].strip() if '\n' in section else ''
+        if content:
+            support_nav += '  <li><a href="./info/">Практическая информация</a></li>\n'
 support_nav += '</ul>'
 
 support_index_html = f'''<!DOCTYPE html>
