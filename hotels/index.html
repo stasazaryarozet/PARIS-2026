@@ -3,48 +3,189 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Отели в Париже | Январь 2026</title>
+<title>Отели в Париже | Paris January 2026</title>
+<meta name="description" content="Рекомендованные отели для участников дизайн-путешествия в Париж, январь 2026">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Forum&display=swap" rel="stylesheet">
 <style>
-:root{--text:#1a1a1a;--bg:#fff;--link:#000;--accent:#8B4513;--border:#e0e0e0}
-*{margin:0;padding:0;box-sizing:border-box}
-html{font:400 18px/1.7 -apple-system,BlinkMacSystemFont,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-body{color:var(--text);background:var(--bg);max-width:46em;margin:0 auto;padding:3em 1.5em 6em}
-h1{font-size:2em;font-weight:400;margin-bottom:0.3em;letter-spacing:-0.01em}
-h2{font-size:1.3em;font-weight:500;margin:2.5em 0 1em;padding-top:1.5em;border-top:1px solid var(--border)}
-.intro{font-size:1.1em;color:#666;margin:1em 0 2em}
-.tip{background:#fffbf0;border-left:3px solid #f4c542;padding:1em 1.2em;margin:1.5em 0;font-size:0.95em}
-.tip strong{color:#8B4513}
-.map-link{display:inline-block;background:var(--accent);color:#fff;padding:0.8em 1.5em;border-radius:6px;text-decoration:none;margin:1.5em 0;transition:opacity .15s;border:none}
-.map-link:hover{opacity:0.8}
-footer{margin-top:4em;padding-top:2em;border-top:1px solid var(--border);font-size:0.85em;color:#999}
+:root {
+  --accent-red: #E31B1B;
+  --midnight-blue: #0A2342;
+  --chrome: #C0C0C0;
+  --text-primary: #000000;
+  --text-muted: #666666;
+  --bg-primary: #ffffff;
+  --border-light: #e5e5e5;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --caps-tracking: 0.05em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 3rem 0 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.tip {
+  background: #fafafa;
+  border-left: 3px solid var(--accent-red);
+  padding: 1.5rem 1.8rem;
+  margin: 2.5rem 0;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.tip strong {
+  font-weight: 600;
+  color: var(--midnight-blue);
+}
+
+.map-link {
+  display: inline-block;
+  background: var(--midnight-blue);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+  border-radius: 2px;
+  transition: opacity 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: var(--caps-tracking);
+}
+
+.map-link:hover {
+  opacity: 0.85;
+}
+
+.note {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+p {
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--midnight-blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-light);
+  transition: border-color 0.2s;
+}
+
+a:hover {
+  border-bottom-color: var(--midnight-blue);
+}
+
+footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 3rem 1.2rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
 </style>
 </head>
 <body>
-<h1>🏨 Отели в Париже</h1>
-<p class="intro">Информация для участников дизайн-путешествия в Париж, январь 2026</p>
 
-<div class="tip">
-<strong>От Ольги:</strong> Не берите отели в модных в России 16-м и 17-м районах. Там всё замечательно, но неудобно добираться — в поездках будут пересадки в метро, на такси — пробки. <strong>Лучше всего: 1, 2, 3, 4, 8 районы.</strong>
+<div class="container">
+  <h1>Отели в Париже</h1>
+  <p class="subtitle">Информация для участников дизайн-путешествия, январь 2026</p>
+
+  <div class="tip">
+    <strong>От Ольги:</strong> Не берите отели в модных в России 16-м и 17-м районах. Там всё замечательно, но неудобно добираться — в поездках будут пересадки в метро, на такси — пробки. <strong>Лучше всего: 1, 2, 3, 4, 8 районы.</strong>
+  </div>
+
+  <h2>Рекомендованные отели на карте</h2>
+  <p>Наталия Логинова составила карту с проверенными отелями для участников путешествия:</p>
+
+  <a href="https://www.google.com/maps/@48.8673035,2.3374653,15z/data=!4m2!11m1!2s1QHj6LIiYX9DOBIIqJyhPmm4OuWUgQ?entry=ttu&g_ep=EgoyMDI1MTExMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">
+    Открыть карту отелей
+  </a>
+
+  <p class="note">Карта содержит проверенные отели в удобных районах Парижа с учётом маршрутов путешествия.</p>
+
+  <h2>Помощь с выбором</h2>
+  <p>Если вам нужна помощь с выбором жилья, Ольга может проконсультировать лично. Напишите на <a href="mailto:o.g.rozet@gmail.com">o.g.rozet@gmail.com</a></p>
+
+  <footer>
+    <p>Информация собрана из опыта участников дизайн-путешествий в Париж 2024–2025</p>
+    <p>Обновлено: ноябрь 2025</p>
+  </footer>
 </div>
-
-<h2>🗺️ Рекомендованные отели на карте</h2>
-<p>Наталия Логинова составила карту с проверенными отелями для участников путешествия:</p>
-
-<a href="https://www.google.com/maps/@48.8673035,2.3374653,15z/data=!4m2!11m1!2s1QHj6LIiYX9DOBIIqJyhPmm4OuWUgQ?entry=ttu&g_ep=EgoyMDI1MTExMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">
-�� Открыть карту отелей на Google Maps
-</a>
-
-<p style="font-size:0.95em;color:#666;margin-top:0.5em">
-Карта содержит проверенные отели в удобных районах Парижа с учётом маршрутов путешествия.
-</p>
-
-<h2>📞 Помощь с выбором</h2>
-<p>Если вам нужна помощь с выбором жилья, Ольга может проконсультировать лично. Напишите на <a href="mailto:o.g.rozet@gmail.com">o.g.rozet@gmail.com</a></p>
-
-<footer>
-<p>Информация собрана из опыта участников дизайн-путешествий в Париж 2024-2025</p>
-<p>Обновлено: ноябрь 2025</p>
-</footer>
 
 </body>
 </html>
