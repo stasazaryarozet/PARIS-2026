@@ -10,19 +10,16 @@ from pathlib import Path
 
 # Скрипт для обхода кеша (единый для всех страниц)
 CACHE_BUST_SCRIPT = """<script>
-// Обход кеша: добавляем timestamp в URL, затем убираем
+// Обход кеша через случайный параметр при fetch, чистый URL в адресной строке
 (function() {
   const url = new URL(window.location.href);
-  const hasTimestamp = url.searchParams.has('_t');
   
-  if (!hasTimestamp) {
-    // Первая загрузка: добавляем timestamp
-    url.searchParams.set('_t', Date.now());
-    window.location.replace(url.href);
-  } else {
-    // Вторая загрузка: убираем timestamp из адресной строки
+  // Если есть параметр кеш-бастинга, убираем его из адресной строки
+  if (url.searchParams.has('_') || url.searchParams.has('v') || url.searchParams.has('_t')) {
+    url.searchParams.delete('_');
+    url.searchParams.delete('v');
     url.searchParams.delete('_t');
-    window.history.replaceState({}, '', url.pathname + url.search);
+    window.history.replaceState({}, '', url.pathname);
   }
 })();
 </script>"""
