@@ -2,10 +2,142 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0;url=hotels/">
-  <title>Поддержка участников</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Поддержка участников — Париж в Январе 2026</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.7;
+      color: #2d2d2d;
+      background: #fafafa;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #1a1a1a;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+    .intro {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background: #f8f8f8;
+      border-radius: 2px;
+    }
+    .sections {
+      display: grid;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .section-card {
+      padding: 1.5rem;
+      border: 1px solid #e8e8e8;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .section-card:hover {
+      border-color: #2c5aa0;
+      box-shadow: 0 2px 8px rgba(44,90,160,0.1);
+    }
+    .section-card h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #2c5aa0;
+      margin-bottom: 0.5rem;
+    }
+    .section-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    .contact {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e8e8e8;
+      text-align: center;
+    }
+    .contact h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .contact p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    a {
+      color: #2c5aa0;
+      text-decoration: none;
+      border-bottom: 1px solid #2c5aa0;
+    }
+    a:hover {
+      opacity: 0.8;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.5rem; }
+      .container { padding: 2rem 1.5rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <p>Перенаправление на <a href="hotels/">отели</a>...</p>
+  <div class="container">
+    <h1>Поддержка участников</h1>
+    <p class="subtitle">Париж в Январе 2026</p>
+
+    <div class="intro">
+      Всё необходимое для комфортной подготовки к путешествию. Выбрали проверенные отели, собрали полезную информацию о городе и готовы ответить на ваши вопросы.
+    </div>
+
+    <div class="sections">
+      <a href="hotels/" class="section-card">
+        <h2>Отели Парижа</h2>
+        <p>17 проверенных отелей с удобным расположением относительно маршрута. Рекомендации по районам, метро и бюджету.</p>
+      </a>
+
+      <!-- Будущие разделы -->
+      <!--
+      <a href="transport/" class="section-card">
+        <h2>Транспорт</h2>
+        <p>Как добраться из аэропорта, навигация по метро, полезные приложения.</p>
+      </a>
+
+      <a href="practical/" class="section-card">
+        <h2>Практическая информация</h2>
+        <p>Погода, что взять с собой, розетки, связь, полезные фразы.</p>
+      </a>
+      -->
+    </div>
+
+    <div class="contact">
+      <h2>Остались вопросы?</h2>
+      <p>Ольга всегда готова помочь</p>
+      <p><a href="https://t.me/olga_rozet">Написать в Telegram →</a></p>
+    </div>
+  </div>
 </body>
 </html>
