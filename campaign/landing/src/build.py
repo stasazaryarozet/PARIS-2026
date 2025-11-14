@@ -608,12 +608,6 @@ hr {{
   <p class="subtitle">Париж в Январе 2026</p>
 
   {support_body_html}
-
-  <div class="contact">
-    <h2>Остались вопросы?</h2>
-    <p>Ольга всегда готова помочь</p>
-    <p><a href="https://t.me/olga_rozet">Написать в Telegram →</a></p>
-  </div>
 </div>
 
 {CACHE_BUST_SCRIPT}
