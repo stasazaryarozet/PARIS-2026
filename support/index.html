@@ -130,10 +130,6 @@ hr {
   <p class="subtitle">Париж в Январе 2026</p>
 
   <section class="support-section">
-  <h2>Support</h2>
-</section>
-
-<section class="support-section">
   <h2>Отели</h2>
   <div class="tip">
     <p>16-й и 17-й округа красивы, но каждый день — час на дорогу. Берите 1, 2, 3, 4 или 8.</p>
@@ -153,7 +149,6 @@ hr {
   <h3>Помощь</h3>
   <p>Подберём отель под ваш маршрут и бюджет.<br />
 <a href="https://t.me/olga_rozet">@olga_rozet</a></p>
-<hr />
 </section>
 
 
@@ -166,11 +161,8 @@ hr {
 </div>
 
 <script>
-// Обход кеша через случайный параметр при fetch, чистый URL в адресной строке
 (function() {
   const url = new URL(window.location.href);
-  
-  // Если есть параметр кеш-бастинга, убираем его из адресной строки
   if (url.searchParams.has('_') || url.searchParams.has('v') || url.searchParams.has('_t')) {
     url.searchParams.delete('_');
     url.searchParams.delete('v');

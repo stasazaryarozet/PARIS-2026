@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
-Генерирует content.js из WEBSITE_CONTENT.md
+Генерирует content.js и support/ из WEBSITE_CONTENT.md
 Единственный источник правды: WEBSITE_CONTENT.md
 
-ВАЖНО: Генерирует чистый JavaScript (без кавычек у ключей)
+ВАЖНО: Генерирует чистый JavaScript (без кавычек у ключей) + support/index.html
 """
 
 import re
 from pathlib import Path
+import shutil
+import markdown
 
 def apply_russian_typography(text):
     """
@@ -375,17 +377,254 @@ def generate_content_js(data):
     return js
 
 def main():
-    print("🔨 Генерация content.js из WEBSITE_CONTENT.md...")
+    print("🔨 Генерация content.js и support/ из WEBSITE_CONTENT.md...")
     
-    data = parse_content('WEBSITE_CONTENT.md')
+    # Читаем WEBSITE_CONTENT.md
+    content_path = Path('content/WEBSITE_CONTENT.md')
+    with open(content_path, 'r', encoding='utf-8') as f:
+        full_content = f.read()
+    
+    # 1. Генерация content.js (для основного лендинга)
+    data = parse_content('content/WEBSITE_CONTENT.md')
     js = generate_content_js(data)
-    
     Path('content.js').write_text(js, encoding='utf-8')
+    print("✅ content.js обновлён")
     
-    print("✅ content.js обновлён из WEBSITE_CONTENT.md")
+    # 2. Генерация support/index.html
+    generate_support(full_content)
+    print("✅ support/index.html сгенерирован")
+    
+    print("\n🎉 Всё сгенерировано из WEBSITE_CONTENT.md")
     print("   • Источник правды: WEBSITE_CONTENT.md")
     print("   • content.js — автогенерируется, не редактировать вручную")
-    print("   • Чистый JS синтаксис (без кавычек у ключей)")
+    print("   • support/index.html — автогенерируется, не редактировать вручную")
+
+def generate_support(full_content):
+    """Генерирует support/index.html из секции # Support"""
+    
+    # Скрипт для обхода кеша
+    CACHE_BUST_SCRIPT = """<script>
+(function() {
+  const url = new URL(window.location.href);
+  if (url.searchParams.has('_') || url.searchParams.has('v') || url.searchParams.has('_t')) {
+    url.searchParams.delete('_');
+    url.searchParams.delete('v');
+    url.searchParams.delete('_t');
+    window.history.replaceState({}, '', url.pathname);
+  }
+})();
+</script>"""
+    
+    # Извлекаем секцию Support
+    support_match = re.search(r'^# Support\n(.+?)(?=^# |\Z)', full_content, re.MULTILINE | re.DOTALL)
+    if not support_match:
+        print("⚠️  Секция # Support не найдена в WEBSITE_CONTENT.md")
+        return
+    
+    support_content = support_match.group(1).strip()
+    
+    # Парсим секции
+    support_sections = re.split(r'^### ', support_content, flags=re.MULTILINE)
+    support_sections = [s.strip() for s in support_sections if s.strip()]
+    
+    # Собираем все секции в один HTML
+    support_body_html = ''
+    
+    for section in support_sections:
+        # Пропускаем заголовок "Поддержка участников"
+        if section.startswith('Поддержка участников'):
+            continue
+        
+        # Проверяем, есть ли контент в секции (кроме заголовка)
+        lines = section.split('\n', 1)
+        section_title = lines[0].strip()
+        section_body = lines[1].strip() if len(lines) > 1 else ''
+        
+        # Пропускаем пустые секции
+        if not section_body:
+            continue
+        
+        # Добавляем секцию
+        support_body_html += f'<section class="support-section">\n'
+        support_body_html += f'  <h2>{section_title}</h2>\n'
+        
+        # Парсим подсекции (#### заголовки)
+        subsections = re.split(r'^#### ', section_body, flags=re.MULTILINE)
+        subsections = [s.strip() for s in subsections if s.strip()]
+        
+        if subsections:
+            for subsection in subsections:
+                sub_lines = subsection.split('\n', 1)
+                sub_title = sub_lines[0].strip()
+                sub_body = sub_lines[1].strip() if len(sub_lines) > 1 else ''
+                
+                if not sub_body:
+                    continue
+                
+                # Специальная обработка для "Совет" (tip box)
+                if sub_title == 'Совет':
+                    support_body_html += f'  <div class="tip">\n'
+                    support_body_html += f'    {markdown.markdown(sub_body)}\n'
+                    support_body_html += f'  </div>\n'
+                else:
+                    support_body_html += f'  <h3>{sub_title}</h3>\n'
+                    support_body_html += f'  {markdown.markdown(sub_body)}\n'
+        else:
+            # Секция без подсекций
+            support_body_html += f'  {markdown.markdown(section_body)}\n'
+        
+        support_body_html += '</section>\n\n'
+    
+    # Генерируем HTML
+    support_html = f'''<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Поддержка участников — Paris January 2026</title>
+<meta name="description" content="Практическая информация для участников дизайн-путешествия в Париж, январь 2026">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Forum&display=swap" rel="stylesheet">
+<style>
+:root {{
+  --accent-red: #E31B1B;
+  --midnight-blue: #0A2342;
+  --text-primary: #000000;
+  --text-muted: #666666;
+  --bg-primary: #ffffff;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}}
+
+* {{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}}
+
+html {{
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}}
+
+body {{
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}}
+
+.container {{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}}
+
+h1 {{
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}}
+
+.subtitle {{
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}}
+
+h2 {{
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 3rem 0 1.5rem;
+}}
+
+h3 {{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+}}
+
+.support-section {{
+  margin-bottom: 3rem;
+}}
+
+.tip {{
+  background: #fafafa;
+  border-left: 3px solid var(--accent-red);
+  padding: 1.5rem 1.8rem;
+  margin: 2.5rem 0;
+  line-height: 1.7;
+  color: var(--text-primary);
+}}
+
+a {{
+  color: #2c5aa0;
+  text-decoration: none;
+  border-bottom: 1px solid #2c5aa0;
+}}
+
+a:hover {{
+  border-bottom-color: var(--accent-red);
+}}
+
+p {{
+  margin: 1rem 0;
+}}
+
+strong {{
+  font-weight: 600;
+}}
+
+em {{
+  color: var(--text-muted);
+  font-style: italic;
+}}
+
+hr {{
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 3rem 0;
+}}
+
+.contact {{
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+}}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Поддержка участников</h1>
+  <p class="subtitle">Париж в Январе 2026</p>
+
+  {support_body_html}
+
+  <div class="contact">
+    <h2>Остались вопросы?</h2>
+    <p>Ольга всегда готова помочь</p>
+    <p><a href="https://t.me/olga_rozet">Написать в Telegram →</a></p>
+  </div>
+</div>
+
+{CACHE_BUST_SCRIPT}
+
+</body>
+</html>'''
+    
+    # Создаём директорию и сохраняем файл
+    support_dir = Path('../../../support')
+    support_dir.mkdir(exist_ok=True)
+    (support_dir / 'index.html').write_text(support_html, encoding='utf-8')
 
 if __name__ == '__main__':
     main()
