@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
 Генератор всех страниц parisinjanuary.ru из единого content.md
-Генерирует: index.html, support/index.html, support/hotels/index.html
+Генерирует: index.html, support/index.html (плоская страница)
 """
 
 import re
 import markdown
 from pathlib import Path
+import shutil
 
 # Скрипт для обхода кеша (единый для всех страниц)
 CACHE_BUST_SCRIPT = """<script>
@@ -141,26 +142,58 @@ with open('index.html', 'w', encoding='utf-8') as f:
 
 print('✅ index.html сгенерирован')
 
-# === ГЕНЕРАЦИЯ SUPPORT/INDEX.HTML ===
+# === ГЕНЕРАЦИЯ SUPPORT/INDEX.HTML (плоская страница) ===
 
 support_sections = re.split(r'^### ', support_content, flags=re.MULTILINE)
 support_sections = [s.strip() for s in support_sections if s.strip()]
 
-support_nav = '<ul>\n'
+# Собираем все секции в один HTML
+support_body_html = ''
+
 for section in support_sections:
-    if section.startswith('Отели'):
-        support_nav += '  <li><a href="./hotels/">Отели</a></li>\n'
-    elif section.startswith('Транспорт'):
-        # Пропускаем пустые секции
-        content = section.split('\n', 1)[1].strip() if '\n' in section else ''
-        if content:
-            support_nav += '  <li><a href="./transport/">Транспорт</a></li>\n'
-    elif section.startswith('Практическая информация'):
-        # Пропускаем пустые секции
-        content = section.split('\n', 1)[1].strip() if '\n' in section else ''
-        if content:
-            support_nav += '  <li><a href="./info/">Практическая информация</a></li>\n'
-support_nav += '</ul>'
+    # Пропускаем заголовок "Поддержка участников"
+    if section.startswith('Поддержка участников'):
+        continue
+    
+    # Проверяем, есть ли контент в секции (кроме заголовка)
+    lines = section.split('\n', 1)
+    section_title = lines[0].strip()
+    section_body = lines[1].strip() if len(lines) > 1 else ''
+    
+    # Пропускаем пустые секции
+    if not section_body:
+        continue
+    
+    # Добавляем секцию
+    support_body_html += f'<section class="support-section">\n'
+    support_body_html += f'  <h2>{section_title}</h2>\n'
+    
+    # Парсим подсекции (#### заголовки)
+    subsections = re.split(r'^#### ', section_body, flags=re.MULTILINE)
+    subsections = [s.strip() for s in subsections if s.strip()]
+    
+    if subsections:
+        for subsection in subsections:
+            sub_lines = subsection.split('\n', 1)
+            sub_title = sub_lines[0].strip()
+            sub_body = sub_lines[1].strip() if len(sub_lines) > 1 else ''
+            
+            if not sub_body:
+                continue
+            
+            # Специальная обработка для "Совет" (tip box)
+            if sub_title == 'Совет':
+                support_body_html += f'  <div class="tip">\n'
+                support_body_html += f'    {markdown.markdown(sub_body)}\n'
+                support_body_html += f'  </div>\n'
+            else:
+                support_body_html += f'  <h3>{sub_title}</h3>\n'
+                support_body_html += f'  {markdown.markdown(sub_body)}\n'
+    else:
+        # Секция без подсекций
+        support_body_html += f'  {markdown.markdown(section_body)}\n'
+    
+    support_body_html += '</section>\n\n'
 
 support_index_html = f'''<!DOCTYPE html>
 <html lang="ru">
@@ -171,6 +204,7 @@ support_index_html = f'''<!DOCTYPE html>
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>Поддержка участников — Paris January 2026</title>
+<meta name="description" content="Практическая информация для участников дизайн-путешествия в Париж, январь 2026">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Forum&display=swap" rel="stylesheet">
@@ -230,172 +264,14 @@ h2 {{
   margin: 3rem 0 1.5rem;
 }}
 
-a {{
-  color: #2c5aa0;
-  text-decoration: none;
-  border-bottom: 1px solid #2c5aa0;
-}}
-
-a:hover {{
-  border-bottom-color: var(--accent-red);
-}}
-
-ul {{
-  list-style: none;
-  padding: 0;
-}}
-
-li {{
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #f0f0f0;
-}}
-
-li:last-child {{
-  border-bottom: none;
-}}
-
-em {{
-  color: var(--text-muted);
-  font-style: normal;
-  font-size: 0.9rem;
-}}
-
-.contact {{
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid #e5e5e5;
-}}
-</style>
-</head>
-<body>
-
-<div class="container">
-  <h1>Поддержка участников</h1>
-  <p class="subtitle">Париж в Январе 2026</p>
-
-  <nav>
-    <h2>Разделы</h2>
-    {support_nav}
-  </nav>
-
-  <div class="contact">
-    <h2>Остались вопросы?</h2>
-    <p>Ольга всегда готова помочь</p>
-    <p><a href="https://t.me/olga_rozet">Написать в Telegram →</a></p>
-  </div>
-</div>
-
-{CACHE_BUST_SCRIPT}
-
-</body>
-</html>'''
-
-Path('support').mkdir(exist_ok=True)
-with open('support/index.html', 'w', encoding='utf-8') as f:
-    f.write(support_index_html)
-
-print('✅ support/index.html сгенерирован')
-
-# === ГЕНЕРАЦИЯ SUPPORT/HOTELS/INDEX.HTML ===
-
-# Находим секцию Отели
-hotels_content = ''
-for section in support_sections:
-    if section.startswith('Отели'):
-        hotels_content = section
-        break
-
-# Парсим содержимое отелей
-hotels_parts = re.split(r'^#### ', hotels_content, flags=re.MULTILINE)
-hotels_parts = [p.strip() for p in hotels_parts if p.strip()]
-
-hotels_html_parts = {}
-
-for part in hotels_parts:
-    # Убираем заголовок из контента, оставляем только тело
-    lines = part.split('\n', 1)
-    if len(lines) > 1:
-        title, body = lines[0], lines[1]
-    else:
-        title, body = lines[0], ''
-    
-    if title.startswith('Совет'):
-        hotels_html_parts['tip'] = body.strip()
-    elif title.startswith('17 отелей на карте'):
-        hotels_html_parts['map'] = body.strip()
-    elif title.startswith('География'):
-        hotels_html_parts['geography'] = body.strip()
-    elif title.startswith('Что важно'):
-        hotels_html_parts['important'] = body.strip()
-    elif title.startswith('Помощь'):
-        hotels_html_parts['help'] = body.strip()
-
-hotels_page_html = f'''<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Отели Парижа — Поддержка участников | Paris January 2026</title>
-<meta name="description" content="Проверенные отели для участников дизайн-путешествия в Париж, январь 2026">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Forum&display=swap" rel="stylesheet">
-<style>
-:root {{
-  --accent-red: #E31B1B;
-  --midnight-blue: #0A2342;
-  --text-primary: #000000;
-  --text-muted: #666666;
-  --bg-primary: #ffffff;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-}}
-
-* {{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}}
-
-html {{
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}}
-
-body {{
-  color: var(--text-primary);
-  background: var(--bg-primary);
-}}
-
-.container {{
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-}}
-
-h1 {{
+h3 {{
   font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
-}}
-
-h2 {{
-  font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin: 3rem 0 1.5rem;
+  margin: 2rem 0 1rem;
 }}
 
-.subtitle {{
-  font-size: 1.1rem;
-  color: var(--text-muted);
+.support-section {{
   margin-bottom: 3rem;
 }}
 
@@ -430,30 +306,33 @@ em {{
   color: var(--text-muted);
   font-style: italic;
 }}
+
+hr {{
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 3rem 0;
+}}
+
+.contact {{
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e5e5;
+}}
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>Отели Парижа</h1>
-  <p class="subtitle">Поддержка участников</p>
+  <h1>Поддержка участников</h1>
+  <p class="subtitle">Париж в Январе 2026</p>
 
-  <div class="tip">
-    {markdown.markdown(hotels_html_parts.get('tip', ''))}
+  {support_body_html}
+
+  <div class="contact">
+    <h2>Остались вопросы?</h2>
+    <p>Ольга всегда готова помочь</p>
+    <p><a href="https://t.me/olga_rozet">Написать в Telegram →</a></p>
   </div>
-
-  <h2>17 отелей на карте</h2>
-  {markdown.markdown(hotels_html_parts.get('map', ''))}
-
-  <h2>География</h2>
-  {markdown.markdown(hotels_html_parts.get('geography', ''))}
-
-  <h2>Что важно</h2>
-  {markdown.markdown(hotels_html_parts.get('important', ''))}
-
-  <h2>Помощь</h2>
-  {markdown.markdown(hotels_html_parts.get('help', ''))}
-
 </div>
 
 {CACHE_BUST_SCRIPT}
@@ -461,9 +340,16 @@ em {{
 </body>
 </html>'''
 
-Path('support/hotels').mkdir(parents=True, exist_ok=True)
-with open('support/hotels/index.html', 'w', encoding='utf-8') as f:
-    f.write(hotels_page_html)
+Path('support').mkdir(exist_ok=True)
+with open('support/index.html', 'w', encoding='utf-8') as f:
+    f.write(support_index_html)
 
-print('✅ support/hotels/index.html сгенерирован')
-print(f'\n�� Все страницы сгенерированы из content.md (версия {version})')
+print('✅ support/index.html сгенерирован (плоская страница)')
+
+# Удаляем старую структуру support/hotels/ если существует
+hotels_dir = Path('support/hotels')
+if hotels_dir.exists():
+    shutil.rmtree(hotels_dir)
+    print('🗑️  support/hotels/ удалена (больше не нужна)')
+
+print(f'\n🎉 Все страницы сгенерированы из content.md (версия {version})')
